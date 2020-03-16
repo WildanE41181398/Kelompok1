@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Kelompok1</string>
     <string name="todo">TODO</string>
+    <string name="buat_password">Buat Password . .</string>
+    <string name="verifikasi_password">Verifikasi Password . .</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="daftar_akun">Daftar Akun</string>
 </resources>
