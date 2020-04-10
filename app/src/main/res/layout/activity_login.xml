@@ -54,8 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:passwordToggleTint="#2eb82e" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
     <EditText
         android:id="@+id/editText2"
