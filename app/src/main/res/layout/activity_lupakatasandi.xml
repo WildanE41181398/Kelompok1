@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.024" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ImageView"
         android:layout_width="179dp"
         android:layout_height="168dp"
         android:layout_marginStart="90dp"
@@ -40,7 +40,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/EditTextEmail"
         android:layout_width="320dp"
         android:layout_height="57dp"
         android:layout_marginStart="74dp"
@@ -57,39 +57,34 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TextView"
         android:layout_width="312dp"
         android:layout_height="109dp"
         android:layout_marginStart="74dp"
         android:layout_marginEnd="74dp"
+        android:layout_marginBottom="336dp"
+        android:gravity="center"
         android:text="Pastikan email yang anda masukkan benar, kami akan mengirimkan kode verifikasi ke email anda."
         android:textSize="20dp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText1"
         app:layout_constraintVertical_bias="0.021" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="267dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="8dp"
-        android:background="#FF9900"
-        android:gravity="center"
-        android:text="LANJUTKAN"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif"
+    <Button
+        android:id="@+id/ButtonLanjutkan"
+        android:layout_width="280dp"
+        android:layout_height="64dp"
+        android:background="#e68a00"
+        android:text="Lanjutkan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintTop_toBottomOf="@+id/TextView"
+        app:layout_constraintVertical_bias="0.323" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
