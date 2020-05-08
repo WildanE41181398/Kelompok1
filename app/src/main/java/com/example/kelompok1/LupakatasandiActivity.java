@@ -87,7 +87,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_MATCHING = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/matchcode/";
+        String URL_MATCHING = "http://192.168.1.19/kelompok1_tif_d/OrenzLaundry/api/sendemail/matchcode/";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MATCHING,
                 new Response.Listener<String>() {
                     @Override
@@ -150,7 +150,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_CHECK_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/checkemail/";
+        String URL_CHECK_EMAIL = "http://192.168.1.19/kelompok1_tif_d/OrenzLaundry/api/sendemail/checkemail/";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
                 new Response.Listener<String>() {
                     @Override
@@ -209,7 +209,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         TextView3.setVisibility(View.GONE);
 
-        String URL_RESEND_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/resendemail/";
+        String URL_RESEND_EMAIL = "http://192.168.1.19/kelompok1_tif_d/OrenzLaundry/api/sendemail/resendemail/";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESEND_EMAIL,
                 new Response.Listener<String>() {
                     @Override
