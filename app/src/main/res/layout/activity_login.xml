@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    tools:context=".Login" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="230dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:text="Sudah Punya"
+        android:textColor="#9ACD32"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="-30dp"
+        android:text="Akun?"
+        android:textColor="#9ACD32"
+        android:textStyle="bold"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/editText_Email"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="173dp"
+        android:background="@drawable/rounded"
+        android:hint="  Masukkan Email Anda" />
+
+    <EditText
+        android:id="@+id/editText_Password"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/editText_Email"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded"
+        android:hint="  Masukkan Password Anda"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_Password"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="243dp"
+        android:layout_marginTop="9dp"
+        android:textColor="#FFD700"
+        android:text="Lupa Kata Sandi?" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_Password"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="45dp"
+        android:background="#FFD700"
+        android:text="LOGIN"
+        android:textSize="25dp"
+        android:textColor="#FFFF" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_login"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="123dp"
+        android:layout_marginTop="14dp"
+        android:text="Belum Punya Akun?"
+        android:textColor="#9ACD32" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="178dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="-46dp"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="14dp"
+        app:srcCompat="@drawable/fb" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@drawable/gmail" />
+
+</RelativeLayout>
