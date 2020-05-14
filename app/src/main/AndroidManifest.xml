@@ -12,12 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Beranda"></activity>
+        <activity android:name=".MainActivity">
+
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity android:name=".ForgotpasswordActivity"></activity>
         <activity android:name=".EmailVerifiedActivity" ></activity>
         <activity android:name=".VerifikasiEmailActivity"></activity>
         <activity android:name=".LupakatasandiActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
