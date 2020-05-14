@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.kelompok1">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,15 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+
         android:usesCleartextTraffic="true">
         <activity android:name=".Beranda"></activity>
         <activity android:name=".MainActivity">
+
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".ForgotpasswordActivity"></activity>
+        <activity android:name=".EmailVerifiedActivity" ></activity>
+        <activity android:name=".VerifikasiEmailActivity"></activity>
+        <activity android:name=".LupakatasandiActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

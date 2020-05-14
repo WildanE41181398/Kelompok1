@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#FF9900</color>
+    <color name="colorPrimaryDark">#985B00</color>
+    <color name="colorAccent">#80c000</color>
+    <color name="kuning">#ffc300</color>
+    <color name="hijau">#80c000</color>
+    <color name="hijautua">#456800</color>
 </resources>
