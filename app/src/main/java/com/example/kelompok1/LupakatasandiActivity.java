@@ -52,8 +52,8 @@ public class LupakatasandiActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle("Lupa Kata Sandi");
         EditTextEmail = findViewById(R.id.EditTextEmail);
         btnKirim = findViewById(R.id.btn_lupapassword_kirim);
-        TextView2 = findViewById(R.id.TextView2);
-        TextView3 = findViewById(R.id.TextView3);
+        TextView2 = findViewById(R.id.tv_lupakatasandi_text);
+        TextView3 = findViewById(R.id.tv_lupakatasandi_);
         requestQueue = Volley.newRequestQueue(LupakatasandiActivity.this);
         progressDialog = new ProgressDialog(LupakatasandiActivity.this);
         loading = findViewById(R.id.loading);
