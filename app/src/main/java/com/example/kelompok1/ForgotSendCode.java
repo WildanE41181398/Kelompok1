@@ -148,7 +148,7 @@ public class ForgotSendCode extends AppCompatActivity {
         progressDialog.setMessage("Mengirim ulang ...");
         progressDialog.show();
 
-        String URL_RESEND_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/resendemail/";
+        String URL_RESEND_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/send_gmail/resendemail";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESEND_EMAIL,
                 new Response.Listener<String>() {
                     @Override

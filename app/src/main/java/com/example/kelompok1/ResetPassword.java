@@ -3,7 +3,9 @@ package com.example.kelompok1;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,7 +37,7 @@ public class ResetPassword extends AppCompatActivity {
     private TextView tv_strength;
     private EditText et_pass1, et_pass2;
     private Button btnReset;
-    String tmpPass1, tmpPass2, id_user;
+    String tmpPass1, tmpPass2, id_user, password;
     Boolean CheckEditText;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -49,23 +52,58 @@ public class ResetPassword extends AppCompatActivity {
         et_pass2 = findViewById(R.id.et_resetpassword_2);
         btnReset = findViewById(R.id.btn_resetpassword);
 
+        CekPasswordSaatIni();
+
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CheckEditTextIsEmpty();
-                if (CheckEditText){
-                    if (tmpPass1.equals(tmpPass2)){
-                        if (tmpPass1.length() > 8){
-                            ResetPassword();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ResetPassword.this);
+
+                // Set a title for alert dialog
+                builder.setTitle("Perhatian");
+
+                // Ask the final question
+                builder.setMessage("Apakah anda yakin dengan password ini?");
+
+                // Set the alert dialog yes button click listener
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when user clicked the Yes button
+                        CheckEditTextIsEmpty();
+                        if (CheckEditText){
+                            if (tmpPass1.equals(tmpPass2)){
+                                if (tmpPass1.length() > 8){
+                                    if (!tmpPass1.equals(password)){
+                                        ResetPassword();
+                                    }else{
+                                        Toast.makeText(ResetPassword.this, "Password tidak boleh sama dengan password sebelumnya", Toast.LENGTH_LONG).show();
+                                    }
+                                }else{
+                                    Toast.makeText(ResetPassword.this, "Password harus lebih dari 8 digit", Toast.LENGTH_LONG).show();
+                                }
+                            }else{
+                                Toast.makeText(ResetPassword.this, "Password yang anda masukkan tidak cocok.", Toast.LENGTH_LONG).show();
+                            }
                         }else{
-                            Toast.makeText(ResetPassword.this, "Password harus lebih dari 8 digit", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ResetPassword.this, "Mohon isi semua kolom Password", Toast.LENGTH_LONG).show();
                         }
-                    }else{
-                        Toast.makeText(ResetPassword.this, "Password yang anda masukkan tidak cocok.", Toast.LENGTH_LONG).show();
                     }
-                }else{
-                    Toast.makeText(ResetPassword.this, "Mohon isi semua kolom Password", Toast.LENGTH_LONG).show();
-                }
+                });
+
+                // Set the alert dialog no button click listener
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do something when No button clicked
+//                        Toast.makeText(getApplicationContext(),"No Button Clicked",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                // Display the alert dialog on interface
+                dialog.show();
+
             }
         });
     }
@@ -116,6 +154,56 @@ public class ResetPassword extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("id_user", id_user);
                 params.put("password", tmpPass1);
+
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void  CekPasswordSaatIni(){
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Mengirim ulang ...");
+        progressDialog.show();
+
+        String URL_RESEND_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/send_gmail/getuserbyid";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESEND_EMAIL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            progressDialog.dismiss();
+                            JSONObject jsonObject = new JSONObject(response);
+                            String message = jsonObject.getString("message");
+
+                            if (message.equals("success")) {
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject object = jsonArray.getJSONObject(i);
+                                    password = object.getString("password").trim();
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(ResetPassword.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+                        Toast.makeText(ResetPassword.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("id_user", id_user);
+                params.put("Content-Type", "application/x-www-form-urlencoded");
 
                 return params;
             }
