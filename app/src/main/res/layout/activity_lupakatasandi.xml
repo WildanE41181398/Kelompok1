@@ -40,7 +40,7 @@
         android:contentDescription="TODO" />
 
     <EditText
-        android:id="@+id/EditTextEmail"
+        android:id="@+id/et_lupakatasandi_search"
         android:layout_width="320dp"
         android:layout_height="57dp"
         android:layout_marginStart="74dp"
@@ -61,28 +61,14 @@
         android:layout_width="312dp"
         android:layout_height="109dp"
         android:gravity="center"
-        android:text="Pastikan email yang anda masukkan benar, kami akan mengirimkan kode verifikasi ke email anda."
+        android:text="Pastikan email/username yang anda masukkan benar, kami akan mengirimkan kode verifikasi ke email anda."
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/et_lupakatasandi_search"
         app:layout_constraintVertical_bias="0.037" />
-
-    <TextView
-        android:id="@+id/tv_lupakatasandi_"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/resend_code"
-        android:textColor="@color/hijautua"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_lupapassword_kirim"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lupakatasandi_text" />
 
     <Button
         android:id="@+id/btn_lupapassword_kirim"

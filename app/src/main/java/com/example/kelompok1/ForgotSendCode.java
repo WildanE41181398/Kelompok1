@@ -30,33 +30,33 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class VerifikasiEmailActivity extends AppCompatActivity {
+public class ForgotSendCode extends AppCompatActivity {
 
-    EditText etKodeVerif;
     Button btnKirim;
+    EditText etKodeVerif;
     TextView tvYourEmail, tvVerifResend;
     RequestQueue requestQueue;
-    String tmpKodeVerif;
     ProgressDialog progressDialog;
-    String tmpEmail;
-    Boolean CheckEditText;
-    String IdUser = "USR00001";
     ProgressBar loading;
+    Boolean CheckEditText;
+    String email, tmpKodeVerif;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verifikasi_email);
-
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Verifikasi Email");
+        setContentView(R.layout.activity_forgot_send_code);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Lupa Kata Sandi");
         etKodeVerif = findViewById(R.id.et_kodeverif);
         btnKirim = findViewById(R.id.btn_verifakun_kirim);
         tvYourEmail = findViewById(R.id.tv_verifakun_youremail);
         tvVerifResend = findViewById(R.id.tv_verifakun_resend);
-        requestQueue = Volley.newRequestQueue(VerifikasiEmailActivity.this);
-        progressDialog = new ProgressDialog(VerifikasiEmailActivity.this);
         loading = findViewById(R.id.loading);
+        requestQueue = Volley.newRequestQueue(ForgotSendCode.this);
+        progressDialog = new ProgressDialog(ForgotSendCode.this);
+
+        email = getIntent().getStringExtra("EmailUserTAG");
+        tvYourEmail.setText(email);
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
                 if (CheckEditText){
                     MatchingEmail();
                 }else{
-                    Toast.makeText(VerifikasiEmailActivity.this, "Mohon isi kode verifikasi dengan benar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotSendCode.this, "Mohon isi kode verifikasi dengan benar", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -77,16 +77,13 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
                 ResendEmail();
             }
         });
-
-        GetEmail();
-
     }
 
     private void MatchingEmail(){
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_MATCHING = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/matchcode/";
+        String URL_MATCHING = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/send_gmail/checktoken";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MATCHING,
                 new Response.Listener<String>() {
                     @Override
@@ -101,7 +98,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String id_user = object.getString("id_user").trim();
 
-                                    Intent intent = new Intent(VerifikasiEmailActivity.this, EmailVerifiedActivity.class);
+                                    Intent intent = new Intent(ForgotSendCode.this, ResetPassword.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     intent.putExtra("IdUserTAG", id_user);
@@ -112,12 +109,13 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
                             } else {
                                 loading.setVisibility(View.GONE);
                                 btnKirim.setVisibility(View.VISIBLE);
+                                Toast.makeText(ForgotSendCode.this, message, Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loading.setVisibility(View.GONE);
                             btnKirim.setVisibility(View.VISIBLE);
-                            Toast.makeText(VerifikasiEmailActivity.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(ForgotSendCode.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
                         }
                     }
                 },
@@ -126,14 +124,14 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         loading.setVisibility(View.GONE);
                         btnKirim.setVisibility(View.VISIBLE);
-                        Toast.makeText(VerifikasiEmailActivity.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ForgotSendCode.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
                     }
                 })
         {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", tmpEmail);
+                params.put("email", email);
                 params.put("token", tmpKodeVerif);
                 params.put("Content-Type", "application/x-www-form-urlencoded");
 
@@ -145,68 +143,10 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void GetEmail(){
-        loading.setVisibility(View.VISIBLE);
-        btnKirim.setVisibility(View.GONE);
-
-        String URL_CHECK_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/checkemail/";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String message = jsonObject.getString("message");
-
-                            if (message.equals("success")) {
-                                JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject object = jsonArray.getJSONObject(i);
-                                    String email = object.getString("email").trim();
-
-                                    tvYourEmail.setText(email);
-                                    tmpEmail = email;
-                                    loading.setVisibility(View.GONE);
-                                    btnKirim.setVisibility(View.VISIBLE);
-                                }
-                            } else {
-                                loading.setVisibility(View.GONE);
-                                btnKirim.setVisibility(View.VISIBLE);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            btnKirim.setVisibility(View.VISIBLE);
-                            Toast.makeText(VerifikasiEmailActivity.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        loading.setVisibility(View.GONE);
-                        btnKirim.setVisibility(View.VISIBLE);
-                        Toast.makeText(VerifikasiEmailActivity.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("id_user", IdUser);
-                params.put("Content-Type", "application/x-www-form-urlencoded");
-
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-
     private void  ResendEmail(){
-        loading.setVisibility(View.VISIBLE);
-        tvVerifResend.setVisibility(View.GONE);
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Mengirim ulang ...");
+        progressDialog.show();
 
         String URL_RESEND_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/resendemail/";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESEND_EMAIL,
@@ -214,6 +154,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            progressDialog.dismiss();
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
 
@@ -223,37 +164,27 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String email = object.getString("email").trim();
 
-                                    loading.setVisibility(View.GONE);
-                                    tvVerifResend.setVisibility(View.VISIBLE);
-
-                                    Toast.makeText(VerifikasiEmailActivity.this, "Kode verifikasi telah dikirimkan kepada " + email, Toast.LENGTH_LONG).show();
+                                    Toast.makeText(ForgotSendCode.this, "Kode verifikasi telah dikirimkan kepada " + email, Toast.LENGTH_LONG).show();
                                 }
-                            } else {
-                                loading.setVisibility(View.GONE);
-                                tvVerifResend.setVisibility(View.VISIBLE);
-                                Toast.makeText(VerifikasiEmailActivity.this, message, Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            tvVerifResend.setVisibility(View.VISIBLE);
-                            Toast.makeText(VerifikasiEmailActivity.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(ForgotSendCode.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        loading.setVisibility(View.GONE);
-                        tvVerifResend.setVisibility(View.VISIBLE);
-                        Toast.makeText(VerifikasiEmailActivity.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+                        Toast.makeText(ForgotSendCode.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
                     }
                 })
         {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", tmpEmail);
+                params.put("email", email);
                 params.put("Content-Type", "application/x-www-form-urlencoded");
 
                 return params;
