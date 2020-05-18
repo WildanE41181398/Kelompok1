@@ -15,7 +15,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ResetPassword"></activity>
+        <activity
+            android:name=".BerandaOrenz"
+            android:label="@string/title_activity_beranda_orenz">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ResetPassword" />
         <activity android:name=".ForgotSendCode" />
         <activity android:name=".Beranda" />
         <activity android:name=".ForgotpasswordActivity" />
@@ -30,11 +39,6 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />

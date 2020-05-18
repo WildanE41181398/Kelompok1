@@ -17,5 +17,12 @@
     <string name="medium" />
     <string name="strong" />
     <string name="very_strong" />
+    <string name="title_activity_beranda_orenz">BerandaOrenz</string>
+    <string name="title_home">Home</string>
+    <string name="title_history">History</string>
+    <string name="title_notifications">Notifikasi</string>
+    <string name="message">Message</string>
+    <string name="profil">Profil</string>
+    <string name="promosi">Promosi</string>
 
 </resources>
