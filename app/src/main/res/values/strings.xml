@@ -13,5 +13,9 @@
     <string name="verifikasi_email_anda">Verifikasi Email Anda!</string>
     <string name="kode_verifikasi">Kode Verifikasi</string>
     <string name="example_gmail_com">example@gmail.com</string>
+    <string name="title_activity_paket_satuan">PaketSatuanActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>
