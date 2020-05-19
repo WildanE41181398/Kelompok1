@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -34,13 +33,10 @@ public class LupakatasandiActivity extends AppCompatActivity {
 
     EditText EditTextEmail;
     Button btnKirim;
-    TextView TextView2, TextView3;
     RequestQueue requestQueue;
-    String tmpKodeVerif;
     ProgressDialog progressDialog;
     String tmpEmail;
     Boolean CheckEditText;
-    String IdUser = "USR00001";
     ProgressBar loading;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -50,10 +46,8 @@ public class LupakatasandiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lupakatasandi);
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Lupa Kata Sandi");
-        EditTextEmail = findViewById(R.id.EditTextEmail);
+        EditTextEmail = findViewById(R.id.et_lupakatasandi_search);
         btnKirim = findViewById(R.id.btn_lupapassword_kirim);
-        TextView2 = findViewById(R.id.TextView2);
-        TextView3 = findViewById(R.id.TextView3);
         requestQueue = Volley.newRequestQueue(LupakatasandiActivity.this);
         progressDialog = new ProgressDialog(LupakatasandiActivity.this);
         loading = findViewById(R.id.loading);
@@ -66,20 +60,10 @@ public class LupakatasandiActivity extends AppCompatActivity {
                 if (CheckEditText){
                     MatchingEmail();
                 }else{
-                    Toast.makeText(LupakatasandiActivity.this, "Mohon isi Password anda dengan benar", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LupakatasandiActivity.this, "Mohon isi Email atau Username untuk mencari akun anda", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
-        TextView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ResendEmail();
-            }
-        });
-
-
-        GetEmail();
 
     }
 
@@ -87,7 +71,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_MATCHING = "http://192.168.1.19/kelompok1_tif_d/OrenzLaundry/api/sendemail/matchcode/";
+        String URL_MATCHING = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/send_gmail/checkuser";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MATCHING,
                 new Response.Listener<String>() {
                     @Override
@@ -100,12 +84,12 @@ public class LupakatasandiActivity extends AppCompatActivity {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject object = jsonArray.getJSONObject(i);
-                                    String id_user = object.getString("id_user").trim();
+                                    String email = object.getString("email").trim();
 
                                     Intent intent = new Intent(LupakatasandiActivity.this, ForgotpasswordActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    intent.putExtra("IdUserTAG", id_user);
+                                    intent.putExtra("EmailUserTAG", email);
                                     startActivity(intent);
                                     loading.setVisibility(View.GONE);
                                     btnKirim.setVisibility(View.VISIBLE);
@@ -113,6 +97,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
                             } else {
                                 loading.setVisibility(View.GONE);
                                 btnKirim.setVisibility(View.VISIBLE);
+                                Toast.makeText(LupakatasandiActivity.this, message, Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -134,126 +119,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", tmpEmail);
-                params.put("token", tmpKodeVerif);
-                params.put("Content-Type", "application/x-www-form-urlencoded");
-
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-
-    private void GetEmail(){
-        loading.setVisibility(View.VISIBLE);
-        btnKirim.setVisibility(View.GONE);
-
-        String URL_CHECK_EMAIL = "http://192.168.1.19/kelompok1_tif_d/OrenzLaundry/api/sendemail/checkemail/";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String message = jsonObject.getString("message");
-
-                            if (message.equals("success")) {
-                                JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject object = jsonArray.getJSONObject(i);
-                                    String email = object.getString("email").trim();
-
-                                    TextView2.setText(email);
-                                    tmpEmail = email;
-                                    loading.setVisibility(View.GONE);
-                                    btnKirim.setVisibility(View.VISIBLE);
-                                }
-                            } else {
-                                loading.setVisibility(View.GONE);
-                                btnKirim.setVisibility(View.VISIBLE);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            btnKirim.setVisibility(View.VISIBLE);
-                            Toast.makeText(LupakatasandiActivity.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        loading.setVisibility(View.GONE);
-                        btnKirim.setVisibility(View.VISIBLE);
-                        Toast.makeText(LupakatasandiActivity.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("id_user", IdUser);
-                params.put("Content-Type", "application/x-www-form-urlencoded");
-
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-
-    private void  ResendEmail(){
-        loading.setVisibility(View.VISIBLE);
-        TextView3.setVisibility(View.GONE);
-
-        String URL_RESEND_EMAIL = "http://192.168.1.19/kelompok1_tif_d/OrenzLaundry/api/sendemail/resendemail/";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESEND_EMAIL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String message = jsonObject.getString("message");
-
-                            if (message.equals("success")) {
-                                JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject object = jsonArray.getJSONObject(i);
-                                    String email = object.getString("email").trim();
-
-                                    loading.setVisibility(View.GONE);
-                                    TextView3.setVisibility(View.VISIBLE);
-
-                                    Toast.makeText(LupakatasandiActivity.this, "Kata Sandi telah dikirimkan kepada " + email, Toast.LENGTH_LONG).show();
-                                }
-                            } else {
-                                loading.setVisibility(View.GONE);
-                                TextView3.setVisibility(View.VISIBLE);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            TextView3.setVisibility(View.VISIBLE);
-                            Toast.makeText(LupakatasandiActivity.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        loading.setVisibility(View.GONE);
-                        TextView3.setVisibility(View.VISIBLE);
-                        Toast.makeText(LupakatasandiActivity.this, "Error" + error.toString(), Toast.LENGTH_LONG).show();
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("email", tmpEmail);
+                params.put("search", tmpEmail);
                 params.put("Content-Type", "application/x-www-form-urlencoded");
 
                 return params;
@@ -266,9 +132,9 @@ public class LupakatasandiActivity extends AppCompatActivity {
 
     public void CheckEditTextIsEmpty(){
 
-        tmpKodeVerif = EditTextEmail.getText().toString().trim();
+        tmpEmail = EditTextEmail.getText().toString().trim();
 
-        if (TextUtils.isEmpty(tmpKodeVerif)){
+        if (TextUtils.isEmpty(tmpEmail)){
             CheckEditText = false;
         }else{
             CheckEditText = true;

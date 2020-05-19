@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifikasiEmailActivity">
+    tools:context=".ForgotSendCode">
 
     <ImageView
         android:id="@+id/img_verifakun"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/verifikasi_email_anda"
+        android:text="Kode Reset Password"
         android:textColor="@color/hijau"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -102,11 +102,13 @@
 
     <Button
         android:id="@+id/btn_verifakun_kirim"
-        android:layout_width="172dp"
+        android:layout_width="wrap_content"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:background="@color/colorPrimary"
-        android:text="@string/kirim"
+        android:text="RESET PASSWORD"
         android:textColor="@color/ic_laundry_regis_background"
         android:textSize="26sp"
         android:textStyle="bold"

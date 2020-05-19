@@ -1,4 +1,4 @@
-package com.example.kelompok1.ui.notifications;
+package com.example.kelompok1.ui.history;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.kelompok1.R;
 
-public class NotificationsFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private HistoryViewModel historyViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_messages, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        historyViewModel =
+                ViewModelProviders.of(this).get(HistoryViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_history, container, false);
+        final TextView textView = root.findViewById(R.id.text_dashboard);
+        historyViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

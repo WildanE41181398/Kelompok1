@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Beranda">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        app:srcCompat="@drawable/epic" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="375dp"
+        android:layout_height="37dp"
+        android:layout_below="@id/imageView4"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded"
+        android:gravity="left"
+        android:text=" Saldo : RP.32.000                                 +"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp"
+        android:textColor="#FFFF"
+        android:layout_marginTop="15dp"
+        android:textSize="35dp"
+        android:text="CUCI REGULER" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp"
+        android:textColor="#FFFF"
+        android:layout_marginTop="15dp"
+        android:textSize="35dp"
+        android:text="CUCI EXPRESS" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/button3"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp"
+        android:textColor="#FFFF"
+        android:layout_marginTop="15dp"
+        android:textSize="35dp"
+        android:text="CUCI SATUAN" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_below="@id/button4"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        app:srcCompat="@drawable/kerja" />
+</RelativeLayout>

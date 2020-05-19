@@ -4,6 +4,7 @@
     package="com.example.kelompok1">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,18 @@
         <activity
             android:name=".PaketSatuanActivity"
             android:label="@string/title_activity_paket_satuan"></activity>
+        <activity
+            android:name=".BerandaOrenz"
+            android:label="@string/title_activity_beranda_orenz">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ResetPassword" />
+        <activity android:name=".ForgotSendCode" />
+        <activity android:name=".Beranda" />
         <activity android:name=".ForgotpasswordActivity" />
         <activity android:name=".EmailVerifiedActivity" />
         <activity android:name=".VerifikasiEmailActivity" />
@@ -28,6 +41,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".Login">
+        </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
     </application>
