@@ -15,9 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity
-            android:name=".PaketSatuanActivity"
-            android:label="@string/title_activity_paket_satuan"></activity>
+
         <activity
             android:name=".BerandaOrenz"
             android:label="@string/title_activity_beranda_orenz">
