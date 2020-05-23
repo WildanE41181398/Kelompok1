@@ -24,5 +24,7 @@
     <string name="message">Message</string>
     <string name="profil">Profil</string>
     <string name="promosi">Promosi</string>
+    <string name="tab_notification">Tab Notification</string>
+    <string name="tab_messages">Tab Messages</string>
 
 </resources>

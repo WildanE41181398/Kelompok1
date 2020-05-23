@@ -71,7 +71,6 @@ public class PromosiFragment extends Fragment {
                             String error = jsonObject.getString("error");
                             if (status.equals("200")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                Toast.makeText(getContext(), "Sudah dapat memuat data", Toast.LENGTH_LONG).show();
                                 for (int i=0; i < jsonArray.length(); i++){
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String strId = object.getString("id_promo").trim();
