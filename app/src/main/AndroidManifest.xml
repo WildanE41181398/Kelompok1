@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.promosi.DetailPromosi"></activity>
+        <activity android:name=".TopUp"></activity>
+        <activity android:name=".ui.promosi.DetailPromosi" />
         <activity
             android:name=".BerandaOrenz"
             android:label="@string/title_activity_beranda_orenz">
@@ -39,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
     </application>

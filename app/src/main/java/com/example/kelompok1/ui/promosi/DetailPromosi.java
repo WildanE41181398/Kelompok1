@@ -2,7 +2,6 @@ package com.example.kelompok1.ui.promosi;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,11 +14,9 @@ import com.squareup.picasso.Picasso;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,7 +85,7 @@ public class DetailPromosi extends AppCompatActivity {
                                         tv_desc.setText(strDesc);
                                         tv_awal.setText("Awal Periode : " + strAwal.substring(0, 10));
                                         tv_akhir.setText("Akhir Periode : " + strAkhir.substring(0, 10));
-                                        Picasso.get().load("http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/assets/files/gambar_promo/" + strGambar).into(iv_promosi);
+                                        Picasso.with(DetailPromosi.this).load("http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/assets/files/gambar_promo/" + strGambar).into(iv_promosi);
 
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                             tv_syarat.setText(Html.fromHtml(strSyarat, Html.FROM_HTML_MODE_LEGACY));

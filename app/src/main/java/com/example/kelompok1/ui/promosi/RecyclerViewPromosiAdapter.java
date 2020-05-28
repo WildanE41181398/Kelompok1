@@ -39,7 +39,9 @@ public class RecyclerViewPromosiAdapter extends RecyclerView.Adapter<RecyclerVie
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int position) {
         myViewHolder.akhir_priode.setText("Hingga " + mData.get(position).getAkhir_priode().substring(0, 10));
-        Picasso.get().load("http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/assets/files/gambar_promo/" + mData.get(position).getGambar()).into(myViewHolder.gambar);
+
+//        Picasso.get().load("http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/assets/files/gambar_promo/" + mData.get(position).getGambar()).into(myViewHolder.gambar);
+        Picasso.with(mContext).load("http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/assets/files/gambar_promo/" + mData.get(position).getGambar()).into(myViewHolder.gambar);
 
         myViewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
