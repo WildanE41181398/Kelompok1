@@ -21,20 +21,30 @@
                 android:layout_height="200dp"
                 android:layout_margin="8dp"
                 app:cardBackgroundColor="@color/colorAccent"
-                app:cardCornerRadius="12dp" />
+                app:cardCornerRadius="15dp" >
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ol_homesaldo_02" />
+            </androidx.cardview.widget.CardView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="25dp"
+                android:paddingLeft="15dp"
                 android:paddingTop="8dp"
-                android:paddingRight="25dp"
+                android:paddingRight="15dp"
                 android:paddingBottom="8dp">
 
                 <TextView
                     android:id="@+id/tv_saldocontent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded"
+                    android:padding="20dp"
                     android:text="Lakukan langkah - langkah berikut untuk \nmelakukan Top Up saldo anda : \n\n
 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed tellus in leo congue pulvinar. \n\n
 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed tellus in leo congue pulvinar \n\n
@@ -49,7 +59,7 @@
                     android:id="@+id/btn_saldomengerti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="25dp"
                     android:background="@color/colorAccent"
                     android:paddingLeft="20dp"

@@ -26,6 +26,8 @@ import com.example.kelompok1.TopUp;
 import com.example.kelompok1.ui.promosi.DetailPromosi;
 import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,6 +47,8 @@ public class HomeFragment extends Fragment {
     private RequestQueue requestQueue;
     private ProgressDialog progressDialog;
     private String IdUser;
+    private CarouselView carouselView;
+    private int[] carakerjaImages = {R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01};
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +62,7 @@ public class HomeFragment extends Fragment {
         paket_express = root.findViewById(R.id.cv_paket_express);
         paket_satuan = root.findViewById(R.id.cv_paket_satuan);
         tv_saldo = root.findViewById(R.id.tv_saldohome);
+        carouselView = root.findViewById(R.id.carousel_cara_kerja);
 
         IdUser = "USR00001";
 
@@ -66,6 +71,9 @@ public class HomeFragment extends Fragment {
         sliderLayout.setScrollTimeInSec(3);
 
         SliderView sliderView = new SliderView(getContext());
+
+        carouselView.setPageCount(carakerjaImages.length);
+        carouselView.setImageListener(imageListener);
 
         getDataUser();
         getGambarPromosi();
@@ -102,7 +110,12 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(carakerjaImages[position]);
+        }
+    };
 
     private void setupdata(List<ModelHome> list){
         for (int i=0; i<4; i++){

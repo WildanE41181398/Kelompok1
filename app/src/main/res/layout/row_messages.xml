@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_row_messages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="0dp"
+        app:cardBackgroundColor="#FFDE7A"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_messagesicon"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:contentDescription="icon messages"
+                android:padding="15dp"
+                android:scaleType="fitXY"
+                android:tint="#FF9800"
+                app:srcCompat="@drawable/ic_mail_black_18dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_judulmessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Judul Pesan Baru"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_bodymessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet 100 katakter ahaha ihihi memungkinkan tidak jadi" />
+
+                <TextView
+                    android:id="@+id/tv_datemessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="18 Juni 2020"
+                    android:textColor="@color/design_default_color_on_secondary" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

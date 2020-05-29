@@ -20,11 +20,11 @@
     <string name="title_activity_beranda_orenz">BerandaOrenz</string>
     <string name="title_home">Home</string>
     <string name="title_history">History</string>
-    <string name="title_notifications">Notifikasi</string>
+    <string name="title_notifications">Pesan dan Notifikasi</string>
     <string name="message">Message</string>
     <string name="profil">Profil</string>
     <string name="promosi">Promosi</string>
-    <string name="tab_notification">Tab Notification</string>
-    <string name="tab_messages">Tab Messages</string>
+    <string name="tab_notification">Notifikasi</string>
+    <string name="tab_messages">Pesan</string>
 
 </resources>

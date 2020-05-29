@@ -20,30 +20,18 @@ import com.google.android.material.tabs.TabLayout;
 
 public class NotificationsFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_messages, container, false);
-        toolbar = root.findViewById(R.id.toolbar_fragmess);
         tabLayout = root.findViewById(R.id.tabs_fragmess);
         viewPager = root.findViewById(R.id.vPager_fragmess);
-//      setupToolbar();
         init();
 
         return root;
-    }
-
-    private void setupToolbar() {
-        if (toolbar != null) {
-            ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-            ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
     }
 
     private void init(){
