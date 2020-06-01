@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="364dp"
-        android:layout_height="489dp"
+        android:layout_width="307dp"
+        android:layout_height="460dp"
         android:background="@drawable/rounded"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,10 +44,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <TextView
         android:id="@+id/textView9"
@@ -59,10 +59,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView10"
@@ -74,55 +74,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.212" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="127dp"
-        android:layout_height="31dp"
-        android:gravity="center"
-        android:text="Boneka"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.313" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="127dp"
-        android:layout_height="31dp"
-        android:gravity="center"
-        android:text="Kecil"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.313" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="127dp"
-        android:layout_height="31dp"
-        android:gravity="center"
-        android:text="Sedang"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView14"
@@ -134,43 +89,13 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="127dp"
-        android:layout_height="31dp"
-        android:gravity="center"
-        android:text="Tas Ransel"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.54" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="127dp"
-        android:layout_height="31dp"
-        android:gravity="center"
-        android:text="Bed Cover"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.641" />
-
-    <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textView13"
         android:layout_width="127dp"
         android:layout_height="31dp"
         android:gravity="center"
@@ -179,10 +104,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView18"
@@ -194,10 +119,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.641" />
+        app:layout_constraintVertical_bias="0.766" />
 
     <TextView
         android:id="@+id/textView20"
@@ -209,118 +134,52 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <CheckBox
-        android:id="@+id/selimutkecil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="127dp"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:text="Bed Cover"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.766" />
 
-    <CheckBox
-        android:id="@+id/selimutsedang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/selimutbesar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.296"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/bonekakecil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.353"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/bonekasedang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/bonekabesar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433"
-        tools:ignore="MissingConstraints" />
-
-
-    <CheckBox
-        android:id="@+id/tasransel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484"
-        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="127dp"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:text="Sedang"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/bedcoverkecil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/bedcoversedang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/tasransel"
+        app:layout_constraintVertical_bias="0.013"
         tools:ignore="MissingConstraints" />
 
     <CheckBox
@@ -329,10 +188,168 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/bedcoversedang"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/bedcoversedang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/bedcoverkecil"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="127dp"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:text="Kecil"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="127dp"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:text="Boneka"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="127dp"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:text="Tas Ransel"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.644" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="127dp"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <CheckBox
+        android:id="@+id/selimutkecil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62"
+        app:layout_constraintVertical_bias="0.216"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/selimutbesar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/selimutsedang"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/selimutsedang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/selimutkecil"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+
+    <CheckBox
+        android:id="@+id/bonekakecil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/selimutbesar"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/bonekasedang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/bonekakecil"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/bonekabesar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/bonekasedang"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/tasransel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/bonekabesar"
+        app:layout_constraintVertical_bias="0.02"
         tools:ignore="MissingConstraints" />
 
     <TextView
