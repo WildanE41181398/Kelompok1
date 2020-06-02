@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Kelompok1</string>
+    <string name="paket_reguler">PAKET REGULER</string>
+    <string name="cks">CKS</string>
+    <string name="ck">CK</string>
+    <string name="s">S</string>
 </resources>
