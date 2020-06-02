@@ -18,7 +18,8 @@ import com.example.kelompok1.R;
 
 import java.util.List;
 
-public class RecyclerViewTabMessagesAdapter extends RecyclerView.Adapter<RecyclerViewTabMessagesAdapter.MyViewHolder> {
+public class RecyclerViewTabMessagesAdapter
+        extends RecyclerView.Adapter<RecyclerViewTabMessagesAdapter.MyViewHolder> {
 
     private Context mContext;
     private List<ModelMessages> mMessages;

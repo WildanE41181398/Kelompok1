@@ -2,6 +2,7 @@ package com.example.kelompok1;
 
 import android.os.Bundle;
 
+import com.example.kelompok1.fcm.OrenzFirebaseMessagingService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,9 @@ public class BerandaOrenz extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        OrenzFirebaseMessagingService orenz = new OrenzFirebaseMessagingService();
+        orenz.onTokenRefresh();
     }
 
 }

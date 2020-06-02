@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.notifications.DetailMessage"></activity>
+
+        <activity android:name=".ui.notifications.DetailMessage" />
         <activity android:name=".TopUp" />
         <activity android:name=".ui.promosi.DetailPromosi" />
         <activity
@@ -44,6 +45,14 @@
         <activity android:name=".Login" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
+
+        <service android:name=".fcm.OrenzFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

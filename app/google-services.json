@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "766226342299",
+    "firebase_url": "https://orenzlaundry2020.firebaseio.com",
+    "project_id": "orenzlaundry2020",
+    "storage_bucket": "orenzlaundry2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766226342299:android:cc1eb9d4c4570f5549013e",
+        "android_client_info": {
+          "package_name": "com.example.kelompok1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766226342299-a7vdrb9p861qa9hmgtmc47kik8pravgb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbGnmUVwkAUTFf4hwxKexQkjffKlJ-ckI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766226342299-a7vdrb9p861qa9hmgtmc47kik8pravgb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
