@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Kelompok1</string>
+
+    <string name="paket_reguler">PAKET REGULER</string>
+    <string name="cks">CKS</string>
+    <string name="ck">CK</string>
+    <string name="s">S</string>
+
     <string name="todo">TODO</string>
     <string name="buat_password">Buat Password . .</string>
     <string name="verifikasi_password">Verifikasi Password . .</string>
@@ -26,5 +32,6 @@
     <string name="promosi">Promosi</string>
     <string name="tab_notification">Notifikasi</string>
     <string name="tab_messages">Pesan</string>
+
 
 </resources>
