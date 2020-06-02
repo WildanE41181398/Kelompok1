@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linear_promosi"
+    android:layout_width="match_parent"
+    android:layout_height="155dp"
+    android:layout_margin="3dp"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/kuning"
+        app:cardCornerRadius="15dp">
+
+        <ImageView
+            android:id="@+id/iv_promosi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/roundedimagebackground20p"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/epic" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tanggal_promosi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingEnd="15dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/tertiary_text_light"
+        android:textSize="12dp" />
+
+</LinearLayout>
