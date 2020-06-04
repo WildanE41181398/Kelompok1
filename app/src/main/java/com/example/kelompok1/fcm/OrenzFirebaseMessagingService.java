@@ -3,6 +3,7 @@ package com.example.kelompok1.fcm;
 import android.content.Intent;
 import android.util.Log;
 
+import com.example.kelompok1.Beranda;
 import com.example.kelompok1.BerandaOrenz;
 import com.example.kelompok1.ui.promosi.PromosiFragment;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -33,6 +34,11 @@ public class OrenzFirebaseMessagingService extends FirebaseMessagingService {
 //        storeToken(refreshedToken);
     }
 
+    public String onTokenSend(){
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        return refreshedToken;
+    }
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // ...
@@ -45,54 +51,61 @@ public class OrenzFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
-            if (/* Check if data needs to be processed by long running job */ true) {
-                // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
-//                scheduleJob();
-            } else {
-                // Handle message within 10 seconds
-//                handleNow();
-            }
+                remoteMessage.getData();
+
+                OrenzNotificationManager mNotificationManager = new OrenzNotificationManager(getBaseContext());
+                Map<String, String> data = remoteMessage.getData();
+
+                Log.d(TAG, data.get("data"));
+
+                String tata = data.get("data");
+
+                try {
+                    JSONObject json = new JSONObject(tata);
+                    String title = json.getString("title");
+                    String body = json.getString("message");
+                    String payload = json.getString("payload");
+
+                    JSONObject object = new JSONObject(payload);
+                    String paramintent = object.getString("intent");
+
+                    Intent intent = null;
+
+                    switch (paramintent){
+                        case "home":
+                            intent = new Intent(getApplicationContext(), BerandaOrenz.class);
+                            intent.putExtra("NAVIGATION", "HOME");
+                            break;
+
+                        case "history":
+                            intent = new Intent(getApplicationContext(), BerandaOrenz.class);
+                            intent.putExtra("NAVIGATION", "HISTORY");
+                            break;
+
+                        case "promo":
+                            intent = new Intent(getApplicationContext(), BerandaOrenz.class);
+                            intent.putExtra("NAVIGATION", "PROMOSI");
+                            break;
+
+                        case "notifikasi":
+                            intent = new Intent(getApplicationContext(), BerandaOrenz.class);
+                            intent.putExtra("NAVIGATION", "NOTIFIKASI");
+                            break;
+
+                        case "akun":
+                            intent = new Intent(getApplicationContext(), BerandaOrenz.class);
+                            intent.putExtra("NAVIGATION", "AKUN");
+                            break;
+                    }
+
+                    mNotificationManager.showSmallNotif(title, body, intent);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
         }
 
-        // Check if message contains a notification payload.
-        remoteMessage.getData();
-//            Log.d(TAG, "Message Notification Title: " + remoteMessage.getNotification().getTitle());
-//            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
-
-        OrenzNotificationManager mNotificationManager = new OrenzNotificationManager(getBaseContext());
-        Intent intent;
-//            String title = remoteMessage.getNotification().getTitle();
-//            String body = remoteMessage.getNotification().getBody();
-        Map<String, String> data = remoteMessage.getData();
-
-        Log.d(TAG, data.get("data"));
-
-        String tata = data.get("data");
-
-        try {
-            JSONObject json = new JSONObject(tata);
-            String title = (String) json.get("title");
-            String body = (String) json.get("message");
-
-            String paramintent = "beranda";
-
-            if (paramintent.equalsIgnoreCase("promo")){
-                intent = new Intent(getApplicationContext(), PromosiFragment.class);
-            }else{
-                intent = new Intent(getApplicationContext(), BerandaOrenz.class);
-            }
-
-            mNotificationManager.showSmallNotif(title, body, intent);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
     }
 
     private void storeToken(String token){

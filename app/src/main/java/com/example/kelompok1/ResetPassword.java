@@ -122,16 +122,14 @@ public class ResetPassword extends AppCompatActivity {
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            String status = jsonObject.getString("status");
-                            String error = jsonObject.getString("error");
                             String message = jsonObject.getString("message");
 
-                            if (status.equals("200") && error.equals("false")) {
-                                Toast.makeText(ResetPassword.this, message, Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(ResetPassword.this, Login.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
+                            if (message.equals("success")) {
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject object = jsonArray.getJSONObject(i);
+                                    password = object.getString("password").trim();
+                                }
                             } else {
                                 Toast.makeText(ResetPassword.this, message, Toast.LENGTH_SHORT).show();
                             }

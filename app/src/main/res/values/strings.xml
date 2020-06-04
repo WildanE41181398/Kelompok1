@@ -32,6 +32,7 @@
     <string name="promosi">Promosi</string>
     <string name="tab_notification">Notifikasi</string>
     <string name="tab_messages">Pesan</string>
+    <string name="hapus">HAPUS</string>
 
 
 </resources>

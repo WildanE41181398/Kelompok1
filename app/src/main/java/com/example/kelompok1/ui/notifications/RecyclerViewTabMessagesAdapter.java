@@ -44,7 +44,11 @@ public class RecyclerViewTabMessagesAdapter
             holder.body.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
         }
         holder.judul.setText(mMessages.get(position).getSubjek());
-        holder.body.setText(mMessages.get(position).getBody().substring(0, 100) + "...");
+        if (mMessages.get(position).getBody().length() > 100){
+            holder.body.setText(mMessages.get(position).getBody().substring(0, 100) + "...");
+        }else {
+            holder.body.setText(mMessages.get(position).getBody());
+        }
 
         holder.cv_row_messages.setOnClickListener(new View.OnClickListener() {
             @Override

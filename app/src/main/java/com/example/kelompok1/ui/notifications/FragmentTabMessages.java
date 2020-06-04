@@ -1,6 +1,7 @@
 package com.example.kelompok1.ui.notifications;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kelompok1.R;
 import com.example.kelompok1.ui.promosi.ModelPromosi;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +39,7 @@ public class FragmentTabMessages extends Fragment {
 
     private List<ModelMessages> listMessages = new ArrayList<>();
     private RecyclerView recyclerView;
+    private FloatingActionButton fa_add;
     private String idUser;
 
     public static FragmentTabMessages newInstance(){
@@ -49,9 +52,18 @@ public class FragmentTabMessages extends Fragment {
         View root = inflater.inflate(R.layout.fragmess_messages, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
+        fa_add = root.findViewById(R.id.floatingActionButton);
         recyclerView = root.findViewById(R.id.rv_messages);
         idUser = "USR00001";
         getListMessages();
+
+        fa_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AddMessages.class);
+                startActivity(intent);
+            }
+        });
 
         return root;
     }

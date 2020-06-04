@@ -21,6 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.PaketReguler;
+import com.example.kelompok1.PaketsatuanActivity;
 import com.example.kelompok1.R;
 import com.example.kelompok1.TopUp;
 import com.example.kelompok1.ui.promosi.DetailPromosi;
@@ -90,6 +92,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Aksi pada Paket Reguler", Toast.LENGTH_LONG).show();
+//                Intent intent = new Intent(getContext(), PaketReguler.class);
+//                startActivity(intent);
             }
         });
 
@@ -104,6 +108,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Aksi pada Paket Satuan", Toast.LENGTH_LONG).show();
+//                Intent intent = new Intent(getContext(), PaketsatuanActivity.class);
+//                startActivity(intent);
             }
         });
 

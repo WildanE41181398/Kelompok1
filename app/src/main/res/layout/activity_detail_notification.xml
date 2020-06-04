@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".ui.notifications.DetailNotification">
+
+    <RelativeLayout
+        android:id="@+id/linear_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:id="@+id/linear_header_dtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_left_id"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_header_1"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="No" />
+
+            <TextView
+                android:id="@+id/tv_header_2"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="Nama" />
+
+            <TextView
+                android:id="@+id/tv_header_3"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="Berat(Kg)" />
+
+            <TextView
+                android:id="@+id/tv_header_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="Sub Total" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_detailvalue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear_header_dtl"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/rv_detailvalue"
+            android:layout_weight="0"
+            android:background="@color/vpi__bright_foreground_disabled_holo_dark"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignTop="@id/linear_header_dtl"
+            android:layout_weight="0"
+            android:layout_marginBottom="4dp"
+            android:background="@color/vpi__bright_foreground_disabled_holo_dark"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv_judulnotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Judul Pesan Baaru"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_garisnotification"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/hijautua"
+            android:layout_below="@id/tv_judulnotification"/>
+
+        <TextView
+            android:id="@+id/tv_datenotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="18 Juni 2020"
+            android:textAlignment="textStart"
+            android:layout_below="@id/tv_garisnotification"/>
+
+        <TextView
+            android:id="@+id/tv_detailtransaksi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detail Transaksi"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_below="@id/tv_datenotification"/>
+
+        <TextView
+            android:id="@+id/tv_left_id"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="ID transaksi"
+            android:textSize="12sp"
+            android:layout_below="@id/tv_detailtransaksi"/>
+
+        <TextView
+            android:id="@+id/tv_left_total"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Total bayar"
+            android:textSize="16sp"
+            android:layout_below="@id/rv_detailvalue"/>
+
+        <TextView
+            android:id="@+id/tv_left_tgljemput"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tgl Jemput"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_left_total"/>
+
+        <TextView
+            android:id="@+id/tv_left_tglantar"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tgl antar"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_left_tgljemput"/>
+
+        <TextView
+            android:id="@+id/tv_left_catatan"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_left_tglantar"
+            android:layout_marginTop="8dp"
+            android:text="Catatan"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_right_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_left_id"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_left_id"
+            android:text=": USR000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_right_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_left_total"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_left_total"
+            android:text=": USR000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_right_tgljemput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_left_tgljemput"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_left_tgljemput"
+            android:text=": USR000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_right_tglantar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_left_tglantar"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_left_tglantar"
+            android:text=": USR000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_right_catatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_left_catatan"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tv_left_catatan"
+            android:text=": USR000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_deletenotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/btn_oknotification"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_toLeftOf="@id/btn_oknotification"
+        android:background="#DC293D"
+        android:text="@string/hapus"
+        android:textColor="@color/ic_laundry_regis_background"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_oknotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_notification"
+        android:layout_alignRight="@id/linear_notification"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
+        android:text="@android:string/ok"
+        android:textColor="@color/ic_laundry_regis_background"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

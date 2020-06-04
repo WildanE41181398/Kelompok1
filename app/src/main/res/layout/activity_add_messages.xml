@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".ui.notifications.AddMessages" >
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_subjek"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="32dp"
+            android:autofillHints=""
+            android:background="@drawable/rounded_yellow"
+            android:hint="Tuliskan Subjek Pesan/Masukan"
+            android:maxLength="100"
+            android:inputType="textEmailSubject"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            tools:layout_editor_absoluteX="31dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/et_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/rounded_yellow"
+            android:gravity="top|left"
+            android:hint="Tuliskan Pesan/Masukan anda kepada kami."
+            android:inputType="textMultiLine"
+            android:padding="20dp"
+            tools:layout_editor_absoluteX="31dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_kirim_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
+        android:text="KIRIM PESAN"
+        android:textColor="@color/ic_laundry_regis_background"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</LinearLayout>
+

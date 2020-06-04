@@ -58,7 +58,7 @@ public class RecyclerViewTabNotificationAdapter
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, DetailMessage.class);
+                Intent intent = new Intent(mContext, DetailNotification.class);
                 intent.putExtra("id", mNotifications.get(position).getId());
                 mContext.startActivity(intent);
             }

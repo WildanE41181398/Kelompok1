@@ -23,7 +23,7 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded"
         android:gravity="left"
-        android:text="@string/saldo_rp_32_000"
+        android:text="Rp. 32000"
         android:textSize="20sp"
         tools:ignore="RtlHardcoded" />
 
@@ -37,7 +37,7 @@
         android:textColor="#FFFF"
         android:layout_marginTop="15dp"
         android:textSize="35sp"
-        android:text="@string/cuci_reguler" />
+        android:text="CUCI REGULER" />
 
     <Button
         android:id="@+id/button3"
@@ -49,7 +49,7 @@
         android:textColor="#FFFF"
         android:layout_marginTop="15dp"
         android:textSize="35sp"
-        android:text="@string/cuci_express" />
+        android:text="CUCI EXPRESS" />
 
     <Button
         android:id="@+id/button4"
@@ -61,7 +61,7 @@
         android:textColor="#FFFF"
         android:layout_marginTop="15dp"
         android:textSize="35sp"
-        android:text="@string/cuci_satuan" />
+        android:text="CUCI SATUAN" />
 
     <ImageView
         android:id="@+id/imageView5"
