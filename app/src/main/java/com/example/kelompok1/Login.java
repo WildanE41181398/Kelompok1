@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
     ProgressDialog progressDialog;
     String HttpUrl = "http://192.168.1.64/login/user_login.php";
     Boolean CheckEditText;
-    String TempServerResponseMatchedValue = "Data Sesuai";
+    String TempServerResponseMatchedValue = "Data Benar";
 
 
     @Override
