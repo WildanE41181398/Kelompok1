@@ -1,7 +1,37 @@
 <resources>
     <string name="app_name">Kelompok1</string>
+
     <string name="paket_reguler">PAKET REGULER</string>
     <string name="cks">CKS</string>
     <string name="ck">CK</string>
     <string name="s">S</string>
+
+    <string name="todo">TODO</string>
+    <string name="buat_password">Buat Password . .</string>
+    <string name="verifikasi_password">Verifikasi Password . .</string>
+    <string name="sudah_punya_akun">Sudah punya akun ?</string>
+    <string name="daftar_akun">Daftar Akun</string>
+    <string name="gambar_verif_akun">Gambar Verif Akun</string>
+    <string name="please_enter_the_4_digit">Mohon masukkan 4-digit kode</string>
+    <string name="sent_to_your_email">yang dikirim pada email anda :</string>
+    <string name="resend_code">RESEND CODE</string>
+    <string name="kirim">KIRIM</string>
+    <string name="verifikasi_email_anda">Verifikasi Email Anda!</string>
+    <string name="kode_verifikasi">Kode Verifikasi</string>
+    <string name="example_gmail_com">example@gmail.com</string>
+    <string name="weak" />
+    <string name="medium" />
+    <string name="strong" />
+    <string name="very_strong" />
+    <string name="title_activity_beranda_orenz">BerandaOrenz</string>
+    <string name="title_home">Home</string>
+    <string name="title_history">History</string>
+    <string name="title_notifications">Notifikasi</string>
+    <string name="message">Message</string>
+    <string name="profil">Profil</string>
+    <string name="promosi">Promosi</string>
+    <string name="tab_notification">Tab Notification</string>
+    <string name="tab_messages">Tab Messages</string>
+
+
 </resources>

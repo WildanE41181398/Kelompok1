@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,7 +25,7 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
 
     EditText Email, Password;
-    Button LoginButton;
+    TextView LoginButton;
     RequestQueue requestQueue;
     String EmailHolder, PasswordHolder;
     ProgressDialog progressDialog;
@@ -38,9 +39,9 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Email = (EditText) findViewById(R.id.editText_Email);
-        Password = (EditText) findViewById(R.id.editText_Password);
-        LoginButton = (Button) findViewById(R.id.button_login);
+        Email = findViewById(R.id.editText_Email);
+        Password = findViewById(R.id.editText_Password);
+        LoginButton = findViewById(R.id.button_login);
         requestQueue = Volley.newRequestQueue(Login.this);
         progressDialog = new ProgressDialog(Login.this);
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +143,8 @@ public class Login extends AppCompatActivity {
         PasswordHolder = Password.getText().toString().trim();
 
         //Checking wheter EditText value is empty or not.
-        if (TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder)){
+        if (TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder))
+        {
 
             //if any of EditText is empty then set variable value as False.
             CheckEditText = false;
