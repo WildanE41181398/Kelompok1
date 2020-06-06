@@ -11,11 +11,16 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
+
+import java.util.HashMap;
 
 public class AkunFragment extends Fragment {
 
     private AkunViewModel akunViewModel;
+    private String id;
+    SessionManager sessionManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
@@ -23,10 +28,16 @@ public class AkunFragment extends Fragment {
         akunViewModel = ViewModelProviders.of(this).get(AkunViewModel.class);
         View root = inflater.inflate(R.layout.fragment_akun, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        akunViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        sessionManager = new SessionManager(getContext());
+
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        id = user.get(SessionManager.ID);
+        textView.setText(id);
+
+        textView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(String s) {
-                textView.setText(s);
+            public void onClick(View view) {
+                sessionManager.logout();
             }
         });
 

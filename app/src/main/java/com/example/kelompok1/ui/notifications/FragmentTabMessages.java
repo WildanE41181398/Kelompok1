@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
 import com.example.kelompok1.ui.promosi.ModelPromosi;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,7 +41,8 @@ public class FragmentTabMessages extends Fragment {
     private List<ModelMessages> listMessages = new ArrayList<>();
     private RecyclerView recyclerView;
     private FloatingActionButton fa_add;
-    private String idUser;
+    private String IdUser;
+    private SessionManager sessionManager;
 
     public static FragmentTabMessages newInstance(){
         return new FragmentTabMessages();
@@ -54,7 +56,12 @@ public class FragmentTabMessages extends Fragment {
 
         fa_add = root.findViewById(R.id.floatingActionButton);
         recyclerView = root.findViewById(R.id.rv_messages);
-        idUser = "USR00001";
+
+        sessionManager = new SessionManager(getContext());
+
+        HashMap<String, String> user = sessionManager.getUserDetail();
+
+        IdUser = user.get(SessionManager.ID);
         getListMessages();
 
         fa_add.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +125,7 @@ public class FragmentTabMessages extends Fragment {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
-                params.put("user", idUser);
+                params.put("user", IdUser);
                 params.put("Content-Type","application/x-www-form-urlencoded");
                 return params;
             }

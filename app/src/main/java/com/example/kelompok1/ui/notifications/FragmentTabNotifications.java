@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
 
 import org.json.JSONArray;
@@ -34,7 +35,8 @@ public class FragmentTabNotifications extends Fragment {
 
     private List<ModelNotification> listNotifications = new ArrayList<>();
     private RecyclerView recyclerView;
-    private String idUser;
+    private String IdUser;
+    private SessionManager sessionManager;
 
     public static FragmentTabNotifications newInstance(){
         return new FragmentTabNotifications();
@@ -47,7 +49,11 @@ public class FragmentTabNotifications extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
         recyclerView = root.findViewById(R.id.rv_notif);
-        idUser = "USR00001";
+        sessionManager = new SessionManager(getContext());
+
+        HashMap<String, String> user = sessionManager.getUserDetail();
+
+        IdUser = user.get(SessionManager.ID);
         getListNotifications();
 
         return root;
@@ -103,7 +109,7 @@ public class FragmentTabNotifications extends Fragment {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
-                params.put("user", idUser);
+                params.put("user", IdUser);
                 params.put("Content-Type","application/x-www-form-urlencoded");
                 return params;
             }

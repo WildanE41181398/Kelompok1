@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.PaketReguler;
 import com.example.kelompok1.PaketsatuanActivity;
 import com.example.kelompok1.R;
@@ -46,8 +47,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<ModelHome>  listHomes;
     private CardView top_up, paket_reguler, paket_express, paket_satuan;
     private TextView tv_saldo;
-    private RequestQueue requestQueue;
-    private ProgressDialog progressDialog;
+    private SessionManager sessionManager;
     private String IdUser;
     private CarouselView carouselView;
     private int[] carakerjaImages = {R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01};
@@ -65,8 +65,11 @@ public class HomeFragment extends Fragment {
         paket_satuan = root.findViewById(R.id.cv_paket_satuan);
         tv_saldo = root.findViewById(R.id.tv_saldohome);
         carouselView = root.findViewById(R.id.carousel_cara_kerja);
+        sessionManager = new SessionManager(getContext());
 
-        IdUser = "USR00001";
+        HashMap<String, String> user = sessionManager.getUserDetail();
+
+        IdUser = user.get(SessionManager.ID);
 
         sliderLayout.setIndicatorAnimation(SliderLayout.Animations.THIN_WORM);
         listHomes = new ArrayList<>();

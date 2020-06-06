@@ -1,9 +1,19 @@
 package com.example.kelompok1;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.fcm.OrenzFirebaseMessagingService;
 import com.example.kelompok1.ui.akun.AkunFragment;
 import com.example.kelompok1.ui.history.HistoryFragment;
@@ -22,15 +32,19 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class BerandaOrenz extends AppCompatActivity {
 
-    private HomeFragment homeFragment = new HomeFragment();
-    private PromosiFragment promosiFragment = new PromosiFragment();
-    private HistoryFragment historyFragment = new HistoryFragment();
-    private NotificationsFragment notificationsFragment = new NotificationsFragment();
-    private AkunFragment akunFragment = new AkunFragment();
+    private static String TAG = BerandaOrenz.class.getSimpleName();
+    SessionManager sessionManager;
+    String getId;
     private String nav;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -50,6 +64,12 @@ public class BerandaOrenz extends AppCompatActivity {
 
         OrenzFirebaseMessagingService orenz = new OrenzFirebaseMessagingService();
         orenz.onTokenRefresh();
+
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        getId = user.get(SessionManager.ID);
 
         nav = getIntent().getStringExtra("NAVIGATION");
 
@@ -79,6 +99,12 @@ public class BerandaOrenz extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 
 
 }

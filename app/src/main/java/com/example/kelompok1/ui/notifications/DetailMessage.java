@@ -122,6 +122,7 @@ public class DetailMessage extends AppCompatActivity {
 //                                    tv_body.setText(strBody);
                                 Toast.makeText(getBaseContext(), "Pesan berhasil dihapus!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getBaseContext(), BerandaOrenz.class);
+                                intent.putExtra("NAVIGATION", "NOTIFIKASI");
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(DetailMessage.this, "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
