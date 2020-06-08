@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
 
     <ImageView
         android:id="@+id/imageView2"
@@ -44,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/inpNama"
+        android:id="@+id/Nama"
         android:layout_width="332dp"
         android:layout_height="53dp"
         android:layout_marginTop="36dp"
@@ -58,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/inpEmail"
+        android:id="@+id/Email"
         android:layout_width="332dp"
         android:layout_height="53dp"
         android:autofillHints=""
@@ -68,55 +69,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inpNama" />
+        app:layout_constraintTop_toBottomOf="@+id/Nama" />
 
     <EditText
-        android:id="@+id/inpPassword"
+        android:id="@+id/Password"
         android:layout_width="332dp"
         android:layout_height="53dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/buat_password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inpEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
 
     <EditText
-        android:id="@+id/inpRepassword"
+        android:id="@+id/Repassword"
         android:layout_width="332dp"
         android:layout_height="53dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/verifikasi_password"
+        android:hint="@string/confirm_password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inpPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <TextView
         android:id="@+id/textLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="124dp"
-        android:text="@string/sudah_punya_akun"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="180dp"
+        android:text="@string/sudah_punya_akun?"
         android:textColor="@color/hijau"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inpRepassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Repassword" />
 
     <Button
-        android:id="@+id/btnDaftar"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:paddingStart="16dp"
         android:paddingRight="16dp"
-        android:text="@string/daftar_akun"
+        android:text="@string/REGISTER"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
