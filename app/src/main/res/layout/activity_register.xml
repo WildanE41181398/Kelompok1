@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
+    tools:context=".RegisterActivity" >
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="226dp"
-        android:layout_height="219dp"
+        android:layout_width="171dp"
+        android:layout_height="156dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/todo"
@@ -44,70 +44,117 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/Nama"
-        android:layout_width="332dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="36dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="Nama Anda . ."
-        android:inputType="textPersonName"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/et_namaregis"
+            android:layout_width="332dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="36dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:background="@drawable/rounded"
+            android:hint="Nama Anda . ."
+            android:inputType="textPersonName"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Email"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Nama"
+        tools:ignore="MissingConstraints">
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/et_emailregis"
         android:layout_width="332dp"
         android:layout_height="53dp"
         android:autofillHints=""
         android:ems="10"
+        android:background="@drawable/rounded"
         android:hint="Email Anda . ."
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nama" />
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"  />
 
-    <EditText
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/Password"
-        android:layout_width="332dp"
-        android:layout_height="53dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
+        app:passwordToggleEnabled="true"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email" />
+        app:layout_constraintTop_toBottomOf="@+id/Email"
+        tools:ignore="MissingConstraints">
 
-    <EditText
+        <EditText
+            android:id="@+id/et_passwordregis"
+            android:layout_width="332dp"
+            android:layout_height="53dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:background="@drawable/rounded"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/Repassword"
-        android:layout_width="332dp"
-        android:layout_height="53dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/confirm_password"
-        android:inputType="textPassword"
+        app:passwordToggleEnabled="true"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
+        app:layout_constraintTop_toBottomOf="@+id/Password"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/et_repasswordregis"
+            android:layout_width="332dp"
+            android:layout_height="53dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:background="@drawable/rounded" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="180dp"
-        android:text="@string/sudah_punya_akun?"
+        android:layout_marginTop="20dp"
+        android:text="Sudah punya akun?"
         android:textColor="@color/hijau"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Repassword" />
 
     <Button
@@ -116,10 +163,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:paddingStart="16dp"
-        android:paddingRight="16dp"
-        android:text="@string/REGISTER"
+        android:paddingEnd="16dp"
+        android:text="REGISTER"
+        android:textSize="22sp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/cardview_light_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textLogin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

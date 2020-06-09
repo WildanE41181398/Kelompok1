@@ -15,6 +15,7 @@ public class SessionManager {
     public static final String PREF_NAME = "LOGIN" ;
     public static final String LOGIN = "US_LOGIN";
     public static final String ID = "ID";
+    public static final String BASE_URL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/";
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -48,6 +49,12 @@ public class SessionManager {
         HashMap<String, String> user = new HashMap<>();
         user.put(ID, sharedPreferences.getString(ID, null));
         return user;
+    }
+
+    public HashMap<String, String> getBaseUrl(){
+        HashMap<String, String> url = new HashMap<>();
+        url.put(BASE_URL, sharedPreferences.getString(BASE_URL, null));
+        return url;
     }
 
     public void logout(){

@@ -36,7 +36,7 @@ public class AddMessages extends AppCompatActivity {
 
     EditText subjek, body;
     Button btn_kirim;
-    String tmpSubjek, tmpBody, IdUser;
+    String tmpSubjek, tmpBody, IdUser, BaseUrl;
     Boolean CheckET;
     SessionManager sessionManager;
 
@@ -51,6 +51,7 @@ public class AddMessages extends AppCompatActivity {
         btn_kirim = findViewById(R.id.btn_kirim_message);
         sessionManager = new SessionManager(this);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Tambahkan Pesan/Masukan");
+        BaseUrl = SessionManager.BASE_URL;
 
         HashMap<String, String> user = sessionManager.getUserDetail();
 
@@ -96,7 +97,7 @@ public class AddMessages extends AppCompatActivity {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
-        String URL_API = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/messages/sendmessage";
+        String URL_API = BaseUrl + "api/messages/sendmessage";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_API,
                 new Response.Listener<String>() {
                     @Override

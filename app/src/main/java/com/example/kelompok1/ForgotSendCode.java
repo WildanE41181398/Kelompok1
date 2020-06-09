@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +40,7 @@ public class ForgotSendCode extends AppCompatActivity {
     ProgressDialog progressDialog;
     ProgressBar loading;
     Boolean CheckEditText;
-    String email, tmpKodeVerif;
+    String email, tmpKodeVerif, BaseUrl;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -54,6 +55,7 @@ public class ForgotSendCode extends AppCompatActivity {
         loading = findViewById(R.id.loading);
         requestQueue = Volley.newRequestQueue(ForgotSendCode.this);
         progressDialog = new ProgressDialog(ForgotSendCode.this);
+        BaseUrl = SessionManager.BASE_URL;
 
         email = getIntent().getStringExtra("EmailUserTAG");
         tvYourEmail.setText(email);
@@ -83,7 +85,7 @@ public class ForgotSendCode extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_MATCHING = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/send_gmail/checktoken";
+        String URL_MATCHING = BaseUrl + "api/send_gmail/checktoken";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MATCHING,
                 new Response.Listener<String>() {
                     @Override
@@ -148,7 +150,7 @@ public class ForgotSendCode extends AppCompatActivity {
         progressDialog.setMessage("Mengirim ulang ...");
         progressDialog.show();
 
-        String URL_RESEND_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/send_gmail/resendemail";
+        String URL_RESEND_EMAIL = BaseUrl + "api/send_gmail/resendemail";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESEND_EMAIL,
                 new Response.Listener<String>() {
                     @Override

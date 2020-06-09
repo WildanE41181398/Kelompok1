@@ -9,6 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
 import com.squareup.picasso.Picasso;
 
@@ -31,7 +32,7 @@ import java.util.Objects;
 
 public class DetailPromosi extends AppCompatActivity {
 
-    String id_promo;
+    String id_promo, BaseUrl;
     TextView tv_desc, tv_syarat, tv_awal, tv_akhir, tv_kode;
     ImageView iv_promosi;
 
@@ -47,6 +48,7 @@ public class DetailPromosi extends AppCompatActivity {
         tv_awal = findViewById(R.id.tv_awal);
         tv_akhir = findViewById(R.id.tv_akhir);
         iv_promosi = findViewById(R.id.iv_detail_promosi);
+        BaseUrl = SessionManager.BASE_URL;
 
         getPromosibyId();
 
@@ -57,7 +59,7 @@ public class DetailPromosi extends AppCompatActivity {
         progressDialog.setMessage("Memuat ...");
         progressDialog.show();
 
-            String URL_CHECK_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/promosi/getidbyname/";
+            String URL_CHECK_EMAIL = BaseUrl + "api/promosi/getidbyname/";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
                     new Response.Listener<String>() {
                         @RequiresApi(api = Build.VERSION_CODES.KITKAT)

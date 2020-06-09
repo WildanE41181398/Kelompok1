@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
 
 import org.json.JSONArray;
@@ -34,7 +35,7 @@ import java.util.Map;
 public class PromosiFragment extends Fragment {
 
     private PromosiViewModel promosiViewModel;
-    private String coba = "Mencoba text View";
+    private String coba = "Mencoba text View", BaseUrl;
     private List<ModelPromosi> listPromosi = new ArrayList<>();
     private RecyclerView recyclerView;
 
@@ -45,6 +46,7 @@ public class PromosiFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_promosi, container, false);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        BaseUrl = SessionManager.BASE_URL;
 
         recyclerView = root.findViewById(R.id.rv_promosi);
         getListPromosi();
@@ -57,7 +59,7 @@ public class PromosiFragment extends Fragment {
         progressDialog.setMessage("Loading ...");
         progressDialog.show();
 
-        String URL_PROMOSI = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/promosi";
+        String URL_PROMOSI = BaseUrl + "api/promosi";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PROMOSI,
                 new Response.Listener<String>() {
                     @Override

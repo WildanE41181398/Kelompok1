@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.kelompok1.Beranda;
 import com.example.kelompok1.BerandaOrenz;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.ui.promosi.PromosiFragment;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -22,6 +23,7 @@ public class OrenzFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "OrenzFirebaseIIDService";
     private static final String MYTAG = "MyFirebaseMsgService";
+    SessionManager sessionManager;
 
     public void onTokenRefresh() {
         // Get updated InstanceID token.

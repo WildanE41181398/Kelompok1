@@ -20,7 +20,7 @@ public class AkunFragment extends Fragment {
 
     private AkunViewModel akunViewModel;
     private String id;
-    SessionManager sessionManager;
+    private SessionManager sessionManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
@@ -32,7 +32,7 @@ public class AkunFragment extends Fragment {
 
         HashMap<String, String> user = sessionManager.getUserDetail();
         id = user.get(SessionManager.ID);
-        textView.setText(id);
+        textView.setText(id + "\n LOGOUT");
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

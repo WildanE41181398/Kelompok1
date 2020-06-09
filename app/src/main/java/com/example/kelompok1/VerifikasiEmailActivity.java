@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +39,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     String tmpKodeVerif;
     ProgressDialog progressDialog;
-    String tmpEmail;
+    String tmpEmail, BaseUrl;
     Boolean CheckEditText;
     String IdUser = "USR00001";
     ProgressBar loading;
@@ -57,6 +58,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(VerifikasiEmailActivity.this);
         progressDialog = new ProgressDialog(VerifikasiEmailActivity.this);
         loading = findViewById(R.id.loading);
+        BaseUrl = SessionManager.BASE_URL;
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +88,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_MATCHING = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/matchcode/";
+        String URL_MATCHING = BaseUrl + "api/verifakun/matchcode/";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MATCHING,
                 new Response.Listener<String>() {
                     @Override
@@ -149,7 +151,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_CHECK_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/checkemail/";
+        String URL_CHECK_EMAIL = BaseUrl + "api/verifakun/checkemail/";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
                 new Response.Listener<String>() {
                     @Override
@@ -208,7 +210,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         tvVerifResend.setVisibility(View.GONE);
 
-        String URL_RESEND_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/resendemail/";
+        String URL_RESEND_EMAIL = BaseUrl + "api/verifakun/resendemail/";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESEND_EMAIL,
                 new Response.Listener<String>() {
                     @Override

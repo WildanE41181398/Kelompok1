@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kelompok1.BerandaOrenz;
+import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
 
 import org.json.JSONArray;
@@ -35,7 +36,7 @@ import java.util.Objects;
 
 public class DetailMessage extends AppCompatActivity {
 
-    String id;
+    String id, BaseUrl;
     TextView tv_judul, tv_body, tv_date;
     Button btn_ok, btn_hapus;
     ProgressDialog progressDialog;
@@ -53,6 +54,7 @@ public class DetailMessage extends AppCompatActivity {
         tv_date = findViewById(R.id.tv_datemessage);
         btn_ok = findViewById(R.id.btn_okmessage);
         btn_hapus = findViewById(R.id.btn_deletemessage);
+        BaseUrl = SessionManager.BASE_URL;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             tv_body.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
@@ -100,7 +102,7 @@ public class DetailMessage extends AppCompatActivity {
         progressDialog.setMessage("Memuat ...");
         progressDialog.show();
 
-        String URL_CHECK_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/messages/deletemessageid";
+        String URL_CHECK_EMAIL = BaseUrl + "api/messages/deletemessageid";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
                 new Response.Listener<String>() {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -161,7 +163,7 @@ public class DetailMessage extends AppCompatActivity {
         progressDialog.setMessage("Memuat ...");
         progressDialog.show();
 
-        String URL_CHECK_EMAIL = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/messages/getmessageid";
+        String URL_CHECK_EMAIL = BaseUrl + "api/messages/getmessageid";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
                 new Response.Listener<String>() {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +33,7 @@ public class EmailVerifiedActivity extends AppCompatActivity {
     Button btnHome;
     RequestQueue requestQueue;
     ProgressDialog progressDialog;
-    String id_user;
+    String id_user, BaseUrl;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -44,6 +45,7 @@ public class EmailVerifiedActivity extends AppCompatActivity {
         btnHome = findViewById(R.id.btnEmailVerified_home);
         requestQueue = Volley.newRequestQueue(EmailVerifiedActivity.this);
         progressDialog = new ProgressDialog(EmailVerifiedActivity.this);
+        BaseUrl = SessionManager.BASE_URL;
 
          id_user = getIntent().getStringExtra("IdUserTAG");
 
@@ -62,7 +64,7 @@ public class EmailVerifiedActivity extends AppCompatActivity {
         progressDialog.setMessage("Updating...");
         progressDialog.show();
 
-        String URL_UPDATE_STATUS = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/verifakun/updatestatus/";
+        String URL_UPDATE_STATUS = BaseUrl + "api/verifakun/updatestatus/";
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, URL_UPDATE_STATUS,
                 new Response.Listener<String>() {
                     @Override

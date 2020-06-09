@@ -1,10 +1,12 @@
 package com.example.kelompok1;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -29,24 +31,25 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
     EditText Email, Password;
     TextView LoginButton, FacebookButton, GmailButton, LupaButton, RegisterButton;
     RequestQueue requestQueue;
-    String EmailHolder, PasswordHolder;
+    String EmailHolder, PasswordHolder, BaseUrl;
     ProgressDialog progressDialog;
-    String HttpUrl = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/home/login";
     Boolean CheckEditText;
     SessionManager sessionManager;
-    String TempServerResponseMatchedValue = "Data Benar";
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Login Account");
 
         Email = findViewById(R.id.editText_Email);
         Password = findViewById(R.id.editText_Password);
@@ -58,6 +61,9 @@ public class Login extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         requestQueue = Volley.newRequestQueue(Login.this);
         progressDialog = new ProgressDialog(Login.this);
+
+        BaseUrl = SessionManager.BASE_URL;
+
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +93,10 @@ public class Login extends AppCompatActivity {
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent intent = new Intent(Login.this, RegisterActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
 
@@ -99,6 +108,7 @@ public class Login extends AppCompatActivity {
         progressDialog.show();
         LoginButton.setVisibility(View.GONE);
 
+        String HttpUrl = BaseUrl + "api/home/login";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrl,
                 new Response.Listener<String>() {
                     @Override

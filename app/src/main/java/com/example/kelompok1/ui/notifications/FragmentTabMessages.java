@@ -41,7 +41,7 @@ public class FragmentTabMessages extends Fragment {
     private List<ModelMessages> listMessages = new ArrayList<>();
     private RecyclerView recyclerView;
     private FloatingActionButton fa_add;
-    private String IdUser;
+    private String IdUser, BaseUrl;
     private SessionManager sessionManager;
 
     public static FragmentTabMessages newInstance(){
@@ -56,6 +56,7 @@ public class FragmentTabMessages extends Fragment {
 
         fa_add = root.findViewById(R.id.floatingActionButton);
         recyclerView = root.findViewById(R.id.rv_messages);
+        BaseUrl = SessionManager.BASE_URL;
 
         sessionManager = new SessionManager(getContext());
 
@@ -80,7 +81,7 @@ public class FragmentTabMessages extends Fragment {
         progressDialog.setMessage("Loading ...");
         progressDialog.show();
 
-        String URL_PROMOSI = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/messages/getallmessages";
+        String URL_PROMOSI = BaseUrl + "api/messages/getallmessages";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PROMOSI,
                 new Response.Listener<String>() {
                     @Override

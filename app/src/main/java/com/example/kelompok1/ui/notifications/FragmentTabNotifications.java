@@ -35,7 +35,7 @@ public class FragmentTabNotifications extends Fragment {
 
     private List<ModelNotification> listNotifications = new ArrayList<>();
     private RecyclerView recyclerView;
-    private String IdUser;
+    private String IdUser, BaseUrl;
     private SessionManager sessionManager;
 
     public static FragmentTabNotifications newInstance(){
@@ -48,6 +48,7 @@ public class FragmentTabNotifications extends Fragment {
         View root = inflater.inflate(R.layout.fragmess_notifications, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
+        BaseUrl = SessionManager.BASE_URL;
         recyclerView = root.findViewById(R.id.rv_notif);
         sessionManager = new SessionManager(getContext());
 
@@ -64,7 +65,7 @@ public class FragmentTabNotifications extends Fragment {
         progressDialog.setMessage("Loading ...");
         progressDialog.show();
 
-        String URL_PROMOSI = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/messages/getallnotification";
+        String URL_PROMOSI = BaseUrl + "api/messages/getallnotification";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PROMOSI,
                 new Response.Listener<String>() {
                     @Override

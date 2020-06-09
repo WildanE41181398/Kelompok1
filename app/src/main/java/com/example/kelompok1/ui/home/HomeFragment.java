@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
     private CardView top_up, paket_reguler, paket_express, paket_satuan;
     private TextView tv_saldo;
     private SessionManager sessionManager;
-    private String IdUser;
+    private String IdUser, BaseUrl;
     private CarouselView carouselView;
     private int[] carakerjaImages = {R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01};
 
@@ -68,6 +68,7 @@ public class HomeFragment extends Fragment {
         sessionManager = new SessionManager(getContext());
 
         HashMap<String, String> user = sessionManager.getUserDetail();
+        BaseUrl = SessionManager.BASE_URL;
 
         IdUser = user.get(SessionManager.ID);
 
@@ -130,7 +131,7 @@ public class HomeFragment extends Fragment {
         for (int i=0; i<4; i++){
             final ModelHome home = list.get(i);
             SliderView sliderView = new SliderView(getContext());
-            sliderView.setImageUrl("http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/assets/files/gambar_promo/" + home.getGambarpromosi());
+            sliderView.setImageUrl(BaseUrl + "assets/files/gambar_promo/" + home.getGambarpromosi());
 
             sliderView.setImageScaleType(ImageView.ScaleType.FIT_XY);
             sliderView.setOnSliderClickListener(new SliderView.OnSliderClickListener() {
@@ -151,7 +152,7 @@ public class HomeFragment extends Fragment {
         progressDialog.setMessage("Loading ...");
         progressDialog.show();
 
-        String URL_GETUSER = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/home/getuser";
+        String URL_GETUSER = BaseUrl + "api/home/getuser";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_GETUSER,
                 new Response.Listener<String>() {
                     @Override
@@ -166,7 +167,7 @@ public class HomeFragment extends Fragment {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject object = jsonArray.getJSONObject(i);
-                                    String saldo = object.getString("token").trim();
+                                    String saldo = object.getString("saldo").trim();
                                     tv_saldo.setText("Saldo : Rp. " + saldo);
 
                                 }
@@ -206,7 +207,7 @@ public class HomeFragment extends Fragment {
         progressDialog.setMessage("Loading ...");
         progressDialog.show();
 
-        String URL_PROMOSI = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/home/getgambarpromosi";
+        String URL_PROMOSI = BaseUrl + "api/home/getgambarpromosi";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PROMOSI,
                 new Response.Listener<String>() {
                     @Override
@@ -266,7 +267,7 @@ public class HomeFragment extends Fragment {
         progressDialog.setMessage("Loading ...");
         progressDialog.show();
 
-        String URL_PROMOSI = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/home/getgambarpromosi";
+        String URL_PROMOSI = BaseUrl + "api/home/getgambarpromosi";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PROMOSI,
                 new Response.Listener<String>() {
                     @Override

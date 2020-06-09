@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kelompok1.Helper.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +36,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
     Button btnKirim;
     RequestQueue requestQueue;
     ProgressDialog progressDialog;
-    String tmpEmail;
+    String tmpEmail, BaseUrl;
     Boolean CheckEditText;
     ProgressBar loading;
 
@@ -51,6 +52,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(LupakatasandiActivity.this);
         progressDialog = new ProgressDialog(LupakatasandiActivity.this);
         loading = findViewById(R.id.loading);
+        BaseUrl = SessionManager.BASE_URL;
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +73,7 @@ public class LupakatasandiActivity extends AppCompatActivity {
         loading.setVisibility(View.VISIBLE);
         btnKirim.setVisibility(View.GONE);
 
-        String URL_MATCHING = "http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/api/send_gmail/checkuser";
+        String URL_MATCHING = BaseUrl + "api/send_gmail/checkuser";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MATCHING,
                 new Response.Listener<String>() {
                     @Override
