@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kelompok1.Helper.SessionManager;
+import com.example.kelompok1.fcm.OrenzFirebaseMessagingService;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
@@ -38,7 +39,7 @@ public class Login extends AppCompatActivity {
     EditText Email, Password;
     TextView LoginButton, FacebookButton, GmailButton, LupaButton, RegisterButton;
     RequestQueue requestQueue;
-    String EmailHolder, PasswordHolder, BaseUrl;
+    String EmailHolder, PasswordHolder, BaseUrl, tokenDevice;
     ProgressDialog progressDialog;
     Boolean CheckEditText;
     SessionManager sessionManager;
@@ -61,6 +62,9 @@ public class Login extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         requestQueue = Volley.newRequestQueue(Login.this);
         progressDialog = new ProgressDialog(Login.this);
+
+        OrenzFirebaseMessagingService orenz = new OrenzFirebaseMessagingService();
+        tokenDevice = orenz.onTokenSend();
 
         BaseUrl = SessionManager.BASE_URL;
 
@@ -102,6 +106,60 @@ public class Login extends AppCompatActivity {
 
     }
 
+    public void updateToken(final String id){
+        progressDialog.setMessage("Mohon Tunggu memperbarui token..");
+        progressDialog.show();
+
+        String HttpUrl = BaseUrl + "api/home/updatetokendevice";
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, HttpUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressDialog.dismiss();
+                        try{
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
+
+                            if (status.equals("200")){
+                                Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(Login.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                        progressDialog.dismiss();
+                        Toast.makeText(Login.this, "Error Response" + volleyError.toString(), Toast.LENGTH_LONG).show();
+
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() {
+
+                Map<String, String> params = new HashMap<>();
+
+                params.put("id_user", id);
+                params.put("device_token", tokenDevice);
+                params.put("Content-Type","application/x-www-form-urlencoded");
+
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
     public void UserLogin(){
 
         progressDialog.setMessage("Mohon Tunggu");
@@ -123,8 +181,9 @@ public class Login extends AppCompatActivity {
                                 for (int i = 0; i < jsonArray.length(); i++){
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String id = object.getString("id_user").trim();
-
+                                    updateToken(id);
                                     sessionManager.createSession(id);
+
 
                                     Intent intent = new Intent(Login.this, BerandaOrenz.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
