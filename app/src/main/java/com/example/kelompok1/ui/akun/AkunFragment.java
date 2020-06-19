@@ -1,5 +1,6 @@
 package com.example.kelompok1.ui.akun;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
+import com.example.kelompok1.TransaksiTahap1;
 
 import java.util.HashMap;
 
@@ -28,6 +30,7 @@ public class AkunFragment extends Fragment {
         akunViewModel = ViewModelProviders.of(this).get(AkunViewModel.class);
         View root = inflater.inflate(R.layout.fragment_akun, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
+        final TextView text = root.findViewById(R.id.textView2);
         sessionManager = new SessionManager(getContext());
 
         HashMap<String, String> user = sessionManager.getUserDetail();
@@ -38,6 +41,13 @@ public class AkunFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 sessionManager.logout();
+            }
+        });
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), TransaksiTahap1.class);
+                startActivity(intent);
             }
         });
 

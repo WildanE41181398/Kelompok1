@@ -33,6 +33,7 @@
     <string name="tab_notification">Notifikasi</string>
     <string name="tab_messages">Pesan</string>
     <string name="hapus">HAPUS</string>
+    <string name="title_activity_lokasi_jemput">Map</string>
 
 
 </resources>

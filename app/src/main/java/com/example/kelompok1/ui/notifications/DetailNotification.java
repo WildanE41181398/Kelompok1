@@ -166,8 +166,18 @@ public class DetailNotification extends AppCompatActivity {
                                     Objects.requireNonNull(getSupportActionBar()).setTitle("Detail Transaksi");
                                     id_trs.setText(": " + strIdTrs);
                                     tgl_trs.setText(strTglTrs.substring(0, 10));
-                                    tgl_antar.setText(": " + strTglAntar.substring(0, 10));
-                                    tgl_jemput.setText(": " + strTglJemput.substring(0, 10));
+                                    if (strTglAntar.length() > 10) {
+                                        tgl_antar.setText(": " + strTglAntar.substring(0, 10));
+                                    }else{
+                                        tgl_antar.setText(": - " );
+                                    }
+
+                                    if (strTglJemput.length() > 10){
+                                        tgl_jemput.setText(": " + strTglJemput.substring(0, 10));
+                                    }else{
+                                        tgl_antar.setText(": - " );
+                                    }
+
                                     total_bayar.setText(": " + strTotal);
                                     if (strCatatan.isEmpty()){
                                         catatan.setText(": -");

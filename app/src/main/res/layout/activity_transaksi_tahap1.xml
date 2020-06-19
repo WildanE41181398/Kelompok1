@@ -1,9 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TransaksiTahap1">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/relativeTransaksi1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_paket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_paket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="190dp"
+                    android:contentDescription="TODO"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/ol_background_01" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_pakettrs1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="PAKET SATUAN"
+                android:textAlignment="center"
+                android:textColor="@color/ic_laundry_regis_background"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_infotrs1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cv_paket"
+            android:layout_marginTop="14dp"
+            android:text="Total Harga akan kami kirim ketikan\n pesanan/cucian telah disortir oleh admin. "
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_lokasitrs1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_infotrs1"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_yellow"
+            android:drawableRight="@drawable/ic_add_location_alt_24px"
+            android:gravity="center"
+            android:paddingStart="25dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="8dp"
+            android:text="Pilih Lokasi Anda >>"
+            android:textColor="@color/vpi__background_holo_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_juduldatetrs1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_lokasitrs1"
+            android:layout_marginTop="10dp"
+            android:text="Tentukan Tanggal jemput :"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_datetrs1"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_juduldatetrs1"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/rounded_yellow"
+            android:paddingStart="15dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="8dp"
+            android:text="Tentukan tanggal jemput . . ."
+            android:textColor="@color/vpi__background_holo_dark"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_datetrs1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignTop="@id/tv_datetrs1"
+            android:layout_toEndOf="@id/tv_datetrs1"
+            android:background="@drawable/roundedfillkuning"
+            android:text="SET"
+            android:textColor="@color/ic_laundry_regis_background"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_judultimetrs1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_datetrs1"
+            android:layout_marginTop="10dp"
+            android:text="Tentukan waktu jemput :"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerTrs1"
+            style="@android:style/Widget.DeviceDefault.Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_judultimetrs1"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_yellow"
+            android:popupBackground="@drawable/rounded_yellow"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/tv_judulpromotrs1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerTrs1"
+            android:layout_marginTop="10dp"
+            android:text="Masukkan Token Promosi (jika ada) :"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_inputpromotrs1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_judulpromotrs1"
+            android:layout_marginEnd="15dp"
+            android:gravity="left">
+
+            <EditText
+                android:id="@+id/et_promotrs1"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:background="@drawable/rounded_yellow"
+                android:hint="Ex : ORENZ2020"
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:textColor="@color/vpi__background_holo_dark" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_promotrs1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignTop="@id/et_inputpromotrs1"
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@id/et_inputpromotrs1"
+            android:background="@drawable/roundedfillkuning"
+            android:text="CEK"
+            android:textColor="@color/ic_laundry_regis_background"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_hasilpromotrs1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_inputpromotrs1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:text="Diskon/Promo berhasil didapatkan!"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_trs1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hasilpromotrs1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/roundedfillijo"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="SUBMIT PESANAN"
+            android:textColor="@color/ic_laundry_regis_background"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</ScrollView>
