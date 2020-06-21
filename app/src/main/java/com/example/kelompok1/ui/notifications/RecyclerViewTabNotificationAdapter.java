@@ -53,6 +53,21 @@ public class RecyclerViewTabNotificationAdapter
             case "1":
                 judulnotif = "Kami akan menjemput cucian ke rumah anda!";
                 break;
+            case "2":
+                judulnotif = "Mohon konfirmasi untuk melanjutkan proses pesanan.";
+                break;
+            case "3":
+                judulnotif = "Pesanan sedang diproses! Mohon tunggu update terbaru ketika cucian telah siap diantarkan.";
+                break;
+            case "4":
+                judulnotif = "Pesanan/cuician anda siap diantarkan, mohon atur lokasi antar untuk melanjutkan. \n Mohon siapkan biaya tagihan juga ya, kami akan melakukan pembayaran sembari mengantar cucian.";
+                break;
+            case "5":
+                judulnotif = "Pesanan/cucian selesai diantarkan, sampai jumpa lagi.";
+                break;
+            case "6":
+                judulnotif = "Sayangnya pesanan dibatalkan. mohon beri kami kritik dan saran pada menu 'Pesan'";
+                break;
         }
         holder.judul.setText(judulnotif);
         holder.cv.setOnClickListener(new View.OnClickListener() {

@@ -43,7 +43,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     String tmpEmail, BaseUrl;
     Boolean CheckEditText;
-    String IdUser = "USR00001";
+    String IdUser = "USR000000000001";
     ProgressBar loading;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

@@ -1,12 +1,14 @@
 package com.example.kelompok1.ui.notifications;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.kelompok1.BerandaOrenz;
 import com.example.kelompok1.Helper.SessionManager;
 import com.example.kelompok1.R;
+import com.example.kelompok1.TransaksiTahap2;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,8 +43,8 @@ public class DetailNotification extends AppCompatActivity {
     private List<ModelNotification> listNotifications = new ArrayList<>();
     TextView id_trs, tgl_trs, tgl_jemput, tgl_antar, total_bayar, catatan, judul;
     RecyclerView recyclerView;
-    Button btn_ok, btn_hapus;
-    String id, BaseUrl;
+    Button btn_ok, btn_hapus, btn_konfirmasi, btn_antar, btn_batal;
+    String id, id_paket, BaseUrl, statusTrs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,9 @@ public class DetailNotification extends AppCompatActivity {
 
         btn_hapus = findViewById(R.id.btn_deletenotification);
         btn_ok = findViewById(R.id.btn_oknotification);
+        btn_konfirmasi = findViewById(R.id.btn_konfirmasi);
+        btn_antar = findViewById(R.id.btn_antar);
+        btn_batal = findViewById(R.id.btn_batalnotification);
 
         getNotificationId();
 
@@ -76,17 +82,112 @@ public class DetailNotification extends AppCompatActivity {
         btn_hapus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteNotification();
+                deleteNotification(BaseUrl + "api/messages/deletenotificationid");
             }
         });
+
+        btn_konfirmasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateTrsProsesPesanan();
+            }
+        });
+
+        btn_antar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetailNotification.this, TransaksiTahap2.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.putExtra("id_transaksi", id);
+                intent.putExtra("id_paket", id_paket);
+                startActivity(intent);
+            }
+        });
+
+        btn_batal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetailNotification.this);
+                builder.setTitle("Perhatian");
+                builder.setMessage("Apakah anda yakin ingin membatalkan pesanan?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteNotification(BaseUrl + "api/transaksi/batalpesanan");
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
     }
 
-    public void deleteNotification(){
+    public void updateTrsProsesPesanan(){
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Mengkonfirmasi ...");
+        progressDialog.show();
+
+        String URL_API = BaseUrl + "api/messages/updatekonfirmasiproses";
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, URL_API,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressDialog.dismiss();
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
+
+                            if (status.equals("200")){
+                                Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
+                            }else {
+                                Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(DetailNotification.this, "Error" + e.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+                        Toast.makeText(DetailNotification.this, "Error Response" + error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("id", id);
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    public void deleteNotification(String URL_API_PARAM){
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Memuat ...");
         progressDialog.show();
 
-        String URL_CHECK_EMAIL = BaseUrl + "api/messages/deletenotificationid";
+        String URL_CHECK_EMAIL = URL_API_PARAM;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_CHECK_EMAIL,
                 new Response.Listener<String>() {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -95,15 +196,19 @@ public class DetailNotification extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
                             String message = jsonObject.getString("message");
                             progressDialog.dismiss();
 
-                            if (message.equals("success")) {
-                                Toast.makeText(getBaseContext(), "Notifikasi berhasil dihapus!", Toast.LENGTH_SHORT).show();
+                            if (status.equals("200")) {
+                                Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(getBaseContext(), BerandaOrenz.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.putExtra("NAVIGATION", "NOTIFIKASI");
                                 startActivity(intent);
                             } else {
-                                Toast.makeText(DetailNotification.this, "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -149,6 +254,7 @@ public class DetailNotification extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
+                            int tglantarcheck = 0;
                             progressDialog.dismiss();
 
                             if (message.equals("success")) {
@@ -162,7 +268,9 @@ public class DetailNotification extends AppCompatActivity {
                                     String strStatus = object.getString("status").trim();
                                     String strCatatan = object.getString("catatan").trim();
                                     String strTotal = object.getString("total_harga").trim();
+                                    statusTrs = strStatus;
 
+                                    tglantarcheck = strTglAntar.length();
                                     Objects.requireNonNull(getSupportActionBar()).setTitle("Detail Transaksi");
                                     id_trs.setText(": " + strIdTrs);
                                     tgl_trs.setText(strTglTrs.substring(0, 10));
@@ -193,6 +301,21 @@ public class DetailNotification extends AppCompatActivity {
                                         case "1":
                                             strJudul = "Kami akan menjemput cucian ke rumah anda!";
                                             break;
+                                        case "2":
+                                            strJudul = "Berikut detail pesanan/cucian yang telah kami timbang dan sortir. \n Mohon konfirmasi untuk melanjutkan proses pesanan. dengan melakukan konfirmasi, berarti anda setuju dengan tagihan harga yang tertera dibawah ini.";
+                                            break;
+                                        case "3":
+                                            strJudul = "Pesanan sedang diproses! Mohon tunggu update terbaru ketika cucian telah siap diantarkan.";
+                                            break;
+                                        case "4":
+                                            strJudul = "Pesanan/cuician anda siap diantarkan, mohon atur lokasi antar untuk melanjutkan. \n Mohon siapkan biaya tagihan juga ya, kami akan melakukan pembayaran sembari mengantar cucian.";
+                                            break;
+                                        case "5":
+                                            strJudul = "Pesanan/cucian selesai diantarkan, sampai jumpa lagi.";
+                                            break;
+                                        case "6":
+                                            strJudul = "Sayangnya pesanan dibatalkan. mohon beri kami kritik dan saran pada menu 'Pesan'";
+                                            break;
                                     }
 
                                     judul.setText(strJudul);
@@ -202,6 +325,7 @@ public class DetailNotification extends AppCompatActivity {
                                 JSONArray jsonArrayDtl = jsonObject.getJSONArray("detail");
                                 for (int j = 0; j < jsonArrayDtl.length(); j++){
                                     JSONObject objectjson = jsonArrayDtl.getJSONObject(j);
+                                    id_paket = objectjson.getString("id_paket").trim();
                                     String strNama = objectjson.getString("nama_paket").trim();
                                     String strBerat = objectjson.getString("berat").trim();
                                     String strSubTotal = objectjson.getString("sub_total").trim();
@@ -214,6 +338,27 @@ public class DetailNotification extends AppCompatActivity {
                                 }
 
                                 setupRecyclerView(listNotifications);
+                                if(statusTrs!=null){
+                                    switch (statusTrs){
+                                        case "2":
+                                            btn_konfirmasi.setVisibility(View.VISIBLE);
+                                            btn_batal.setVisibility(View.VISIBLE);
+                                            btn_antar.setVisibility(View.GONE);
+                                            btn_hapus.setVisibility(View.GONE);
+                                            break;
+                                        case "4":
+                                            btn_konfirmasi.setVisibility(View.GONE);
+                                            btn_batal.setVisibility(View.GONE);
+                                            btn_hapus.setVisibility(View.VISIBLE);
+                                            btn_antar.setVisibility(View.VISIBLE);
+
+                                            if (tglantarcheck > 10){
+                                                btn_konfirmasi.setVisibility(View.GONE);
+                                                btn_antar.setVisibility(View.GONE);
+                                            }
+                                            break;
+                                    }
+                                }
 
                             } else {
                                 Toast.makeText(DetailNotification.this, "Tidak dapat memuat data", Toast.LENGTH_LONG).show();

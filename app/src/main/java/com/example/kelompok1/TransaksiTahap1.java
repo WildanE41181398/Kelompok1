@@ -86,8 +86,8 @@ public class TransaksiTahap1 extends AppCompatActivity {
         BaseUrl = SessionManager.BASE_URL;
         progressDialog = new ProgressDialog(TransaksiTahap1.this);
         hashIntent = new HashMap<String, String>();
-        id_paket = "PKT0001";
-        id_promo = "-------";
+        id_paket = "PKT000000000001";
+        id_promo = "PRM000000000001";
 
         getNamaPaket();
 
@@ -104,7 +104,7 @@ public class TransaksiTahap1 extends AppCompatActivity {
             langIntent = getIntent().getStringExtra("langIntent");
             tmpAlamat = getIntent().getStringExtra("alamat");
 
-            Toast.makeText(TransaksiTahap1.this, "Lat : " + latIntent + "\n Alamat : " + tmpAlamat, Toast.LENGTH_LONG).show();
+//            Toast.makeText(TransaksiTahap1.this, "Lat : " + latIntent + "\n Alamat : " + tmpAlamat, Toast.LENGTH_LONG).show();
         }
 
 //       ================================ TV ACTION ================================
@@ -144,7 +144,7 @@ public class TransaksiTahap1 extends AppCompatActivity {
                         tvDate.setText(sdf.format(myCalendar.getTime()));
                         tglJemput = dbsdf.format(myCalendar.getTime());
 
-                        if (myCalendar.getTimeInMillis() < (System.currentTimeMillis() - 1000)){
+                        if (myCalendar.getTimeInMillis() < (System.currentTimeMillis() - 86401000)){
                             Toast.makeText(TransaksiTahap1.this, "Tanggal yang kamu pilih salah!", Toast.LENGTH_LONG).show();
                             myCalendar.setTimeInMillis(System.currentTimeMillis() - 1000);
                             tvDate.setText(sdf.format(myCalendar.getTime()));
@@ -217,8 +217,8 @@ public class TransaksiTahap1 extends AppCompatActivity {
         progressDialog.setCancelable(true);
         progressDialog.show();
 
-        String URL_API = BaseUrl + "api/transaksi/inserttrsmobile";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_API,
+        String URL_API = BaseUrl + "api/transaksi/updateantartrsmobile";
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, URL_API,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

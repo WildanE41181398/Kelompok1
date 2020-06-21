@@ -74,7 +74,7 @@
         android:id="@+id/btn_lupapassword_kirim"
         android:layout_width="172dp"
         android:layout_height="48dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedfillkuning"
         android:text="@string/kirim"
         android:textColor="@color/ic_laundry_regis_background"
         android:textSize="26sp"

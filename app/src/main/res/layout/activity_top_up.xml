@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="25dp"
-                    android:background="@color/colorAccent"
+                    android:background="@drawable/roundedfillijo"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="Mengerti"

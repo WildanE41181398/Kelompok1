@@ -72,7 +72,7 @@
                 android:id="@+id/btnEmailVerified_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundedfillijo"
                 android:text="BACK TO HOME"
                 android:textColor="@color/ic_ol_verifakun_background"
                 android:textSize="20sp"

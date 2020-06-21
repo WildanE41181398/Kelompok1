@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeTrs2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LokasiAntar">
+
+    <include
+        android:id="@+id/include_map_2"
+        layout="@layout/activity_lokasi"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"  />
+
+    <TextView
+        android:id="@+id/tv_antar_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/include_map_2"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        android:text='"Tap" layar untuk memilih koordinat \n peta lokasi antar anda.'
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_alamat_antar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_antar_info"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Alamat Antar : "
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_alamat_antar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/tv_alamat_antar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/rounded_yellow"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Masukkan alamat lengkap anda untuk mengatar cucian bersih . ."
+        android:inputType="textMultiLine"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="12dp" />
+
+    <Button
+        android:id="@+id/btn_simpanlokasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_alamat_antar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/roundedfillkuning"
+        android:text="SIMPAN LOKASI"
+        android:textColor="@color/ic_laundry_regis_background"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+</RelativeLayout>

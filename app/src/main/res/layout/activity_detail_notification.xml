@@ -214,30 +214,78 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/btn_konfirmasi"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@id/btn_oknotification"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_toLeftOf="@id/btn_batalnotification"
+        android:background="@drawable/roundedfillbiru"
+        android:text="KONFIRMASI"
+        android:textColor="@color/ic_laundry_regis_background"
+        android:textSize="17sp"
+        android:visibility="gone"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_antar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignTop="@id/btn_oknotification"
+        android:layout_marginEnd="15dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_toLeftOf="@id/btn_deletenotification"
+        android:background="@drawable/roundedfillbiru"
+        android:text="SET LOKASI \nANTAR"
+        android:textColor="@color/ic_laundry_regis_background"
+        android:textSize="17sp"
+        android:visibility="gone"
+        android:textStyle="bold" />
+
+    <Button
         android:id="@+id/btn_deletenotification"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignBottom="@id/btn_oknotification"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
         android:layout_toLeftOf="@id/btn_oknotification"
-        android:background="#DC293D"
+        android:background="@drawable/roundedfillmerah"
         android:text="@string/hapus"
         android:textColor="@color/ic_laundry_regis_background"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_batalnotification"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@id/btn_oknotification"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_toLeftOf="@id/btn_oknotification"
+        android:background="@drawable/roundedfillmerah"
+        android:text="BATAL"
+        android:textColor="@color/ic_laundry_regis_background"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btn_oknotification"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/linear_notification"
         android:layout_alignRight="@id/linear_notification"
         android:layout_marginTop="10dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/roundedfillijo"
         android:text="@android:string/ok"
         android:textColor="@color/ic_laundry_regis_background"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

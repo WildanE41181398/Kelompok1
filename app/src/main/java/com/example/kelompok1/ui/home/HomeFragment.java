@@ -128,7 +128,7 @@ public class HomeFragment extends Fragment {
     };
 
     private void setupdata(List<ModelHome> list){
-        for (int i=0; i<4; i++){
+        for (int i=0; i<list.size(); i++){
             final ModelHome home = list.get(i);
             SliderView sliderView = new SliderView(getContext());
             sliderView.setImageUrl(BaseUrl + "assets/files/gambar_promo/" + home.getGambarpromosi());
