@@ -60,6 +60,7 @@
         <activity android:name=".ForgotpasswordActivity" />
         <activity android:name=".EmailVerifiedActivity" />
         <activity android:name=".VerifikasiEmailActivity" />
+        <activity android:name=".PaketsatuanActivity" />
         <activity android:name=".LupakatasandiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

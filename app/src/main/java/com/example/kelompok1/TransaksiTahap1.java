@@ -86,7 +86,16 @@ public class TransaksiTahap1 extends AppCompatActivity {
         BaseUrl = SessionManager.BASE_URL;
         progressDialog = new ProgressDialog(TransaksiTahap1.this);
         hashIntent = new HashMap<String, String>();
-        id_paket = "PKT000000000001";
+
+
+        if (getIntent().getStringExtra("id_paket") != null){
+            id_paket = getIntent().getStringExtra("id_paket");
+        }else{
+            id_paket = "PKT000000000001";
+        }
+
+
+        Toast.makeText(TransaksiTahap1.this, id_paket, Toast.LENGTH_LONG).show();
         id_promo = "PRM000000000001";
 
         getNamaPaket();
@@ -95,9 +104,6 @@ public class TransaksiTahap1 extends AppCompatActivity {
         HashMap<String, String> user = sessionManager.getUserDetail();
         id_user = user.get(SessionManager.ID);
 
-        if (getIntent().getStringExtra("id_paket") != null){
-            id_paket = getIntent().getStringExtra("id_paket");
-        }
 
         if (getIntent().getStringExtra("latIntent") != null && getIntent().getStringExtra("langIntent") != null){
             latIntent = getIntent().getStringExtra("latIntent");
@@ -217,8 +223,8 @@ public class TransaksiTahap1 extends AppCompatActivity {
         progressDialog.setCancelable(true);
         progressDialog.show();
 
-        String URL_API = BaseUrl + "api/transaksi/updateantartrsmobile";
-        StringRequest stringRequest = new StringRequest(Request.Method.PUT, URL_API,
+        String URL_API = BaseUrl + "api/transaksi/insertTrsMobile";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_API,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

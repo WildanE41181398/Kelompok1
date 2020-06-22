@@ -111,9 +111,9 @@ public class HomeFragment extends Fragment {
         paket_satuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Aksi pada Paket Satuan", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(getContext(), PaketsatuanActivity.class);
-//                startActivity(intent);
+                //Toast.makeText(getContext(), "Aksi pada Paket Satuan", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), PaketsatuanActivity.class);
+                startActivity(intent);
             }
         });
 
