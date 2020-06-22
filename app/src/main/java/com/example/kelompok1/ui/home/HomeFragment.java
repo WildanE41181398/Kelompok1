@@ -22,7 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kelompok1.Helper.SessionManager;
-import com.example.kelompok1.PaketReguler;
+import com.example.kelompok1.PaketregulerActivity;
 import com.example.kelompok1.PaketsatuanActivity;
 import com.example.kelompok1.R;
 import com.example.kelompok1.TopUp;
@@ -95,9 +95,9 @@ public class HomeFragment extends Fragment {
         paket_reguler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Aksi pada Paket Reguler", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(getContext(), PaketReguler.class);
-//                startActivity(intent);
+ //               Toast.makeText(getContext(), "Aksi pada Paket Reguler", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), PaketregulerActivity.class);
+                startActivity(intent);
             }
         });
 
