@@ -15,7 +15,7 @@ public class SessionManager {
     public static final String PREF_NAME = "LOGIN" ;
     public static final String LOGIN = "US_LOGIN";
     public static final String ID = "ID";
-    public static final String BASE_URL = "http://192.168.43.51/kelompok1_tif_d/OrenzLaundry/";
+    public static final String BASE_URL = "http://192.168.1.11/kelompok1_tif_d/OrenzLaundry/";
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
