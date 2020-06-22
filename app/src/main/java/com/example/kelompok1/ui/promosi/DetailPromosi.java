@@ -87,7 +87,7 @@ public class DetailPromosi extends AppCompatActivity {
                                         tv_desc.setText(strDesc);
                                         tv_awal.setText("Awal Periode : " + strAwal.substring(0, 10));
                                         tv_akhir.setText("Akhir Periode : " + strAkhir.substring(0, 10));
-                                        Picasso.with(DetailPromosi.this).load("http://192.168.5.145/kelompok1_tif_d/OrenzLaundry/assets/files/gambar_promo/" + strGambar).into(iv_promosi);
+                                        Picasso.with(DetailPromosi.this).load(BaseUrl + "assets/files/gambar_promo/" + strGambar).into(iv_promosi);
 
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                             tv_syarat.setText(Html.fromHtml(strSyarat, Html.FROM_HTML_MODE_LEGACY));
