@@ -1,52 +1,53 @@
 package com.example.kelompok1;
 
-//import android.app.ProgressDialog;
-//import android.content.Context;
-//import android.content.Intent;
-//import android.graphics.Bitmap;
-//import android.net.Uri;
-//import android.provider.MediaStore;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 //import android.support.annotation.Nullable;
 //import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-//import android.util.Base64;
-//import android.util.Log;
-//import android.view.Menu;
-//import android.view.MenuInflater;
-//import android.view.MenuItem;
-//import android.view.View;
-//import android.view.inputmethod.InputMethodManager;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.Toast;
-//
-//import com.android.volley.Request;
-//import com.android.volley.RequestQueue;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.android.volley.toolbox.Volley;
+import android.util.Base64;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 //import com.activity_profilcustomer;
 //import com.squareup.picasso.MemoryPolicy;
 //import com.squareup.picasso.NetworkPolicy;
-//import com.squareup.picasso.Picasso;
-//
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.io.ByteArrayOutputStream;
-//import java.io.IOException;
-//import java.util.HashMap;
-//import java.util.Map;
-//import java.util.Objects;
-//
+import com.example.kelompok1.R;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 //import de.hdodenhof.circleimageview.CircleImageView;
 
-class activity_profilcustomer extends AppCompatActivity {
+public class profilcustomer extends AppCompatActivity {
 
-//    private static final String TAG = activity_profilcustomer.class.getSimpleName();
+    private static final String TAG = profilcustomer.class.getSimpleName();
 //    private EditText nama, email;
 //    private Bitmap bitmap;
 //    CircleImageView foto_profil;
@@ -58,7 +59,7 @@ class activity_profilcustomer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilcustomer);
-//
+
 //        Objects.requireNonNull(getSupportActionBar()).setTitle("Profile Customer");
 //
 //        sessionManager = new SessionManager(this);

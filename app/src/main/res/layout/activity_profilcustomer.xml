@@ -1,108 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    android:paddingTop="60dp"
     android:background="@color/cardview_light_background"
-    tools:context=".TransaksiTahap1">
+    tools:context=".profilcustomer">
 
-<!--    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--        android:id="@+id/foto_profil"-->
-<!--        android:layout_width="120dp"-->
-<!--        android:layout_height="120dp"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:src="@drawable/ic_account_cicle_black_24dp" />-->
+    <RelativeLayout
+        android:id="@+id/rel_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-<!--    <Button-->
-<!--        android:id="@+id/btn_foto"-->
-<!--        style="@style/Widget.AppComat.ActionButton.CloseMode"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/foto_profil"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:text="Ganti Foto" />-->
+        <RelativeLayout
+            android:id="@+id/layoutfoto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorAccent">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/layout_nama"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/btn_foto"-->
-<!--        android:layout_marginLeft="10dp"-->
-<!--        android:layout_marginRight="10dp"-->
-<!--        android:weightSum="2"-->
-<!--        android:orientation="horizontal"-->
-<!--        />-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/foto_profil"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="25dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_account_circle_black_18dp"
+                />
 
-<!--    <ImageView-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_weight="1"-->
-<!--        android:src="@drawable/ic_action_name"/>-->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_foto"
+                style="@style/Widget.AppCompat.ActionButton.CloseMode"
+                android:text="Ganti Foto"
+                android:layout_below="@id/foto_profil"
+                android:textColor="@color/ic_laundry_regis_background"
+                android:layout_centerHorizontal="true"
+                />
 
-<!--    <EditText-->
-<!--        android:id="@+id/usename"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="10dp"-->
-<!--        android:hint="Username"-->
-<!--        android:inputType="textPersonName"-->
-<!--        android:textColor="@android:color/black" />-->
+        </RelativeLayout>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView11"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_weight="1"-->
-<!--        tools:src="@tools:sample/avatars" />-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_below="@+id/layoutfoto"
+            android:id="@+id/layoutbiodata"
+            >
 
-<!--</LinearLayout>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
 
-<!--<LinearLayout-->
-<!--android:id="@+id/layout_password"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_below="@+id/layout_name"-->
-<!--android:layout_marginLeft="10dp"-->
-<!--android:layout_marginRight="10dp"-->
-<!--android:orientation="horizontal">-->
-<!--<ImageView-->
-<!--    android:layout_width="70dp"-->
-<!--    android:layout_height="50dp"-->
-<!--    android:layout_weight="1"-->
-<!--    android:src="@drawable/ic_password"/>-->
-<!--<EditText-->
-<!--    android:id="@+id/password"-->
-<!--    android:hint="Password"-->
-<!--    android:inputType="Password"-->
-<!--    android:layout_marginLeft="10dp"-->
-<!--    android:textColor="@android:color/black"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"/>-->
-<!--</LinearLayout>-->
-<!--<LinearLayout-->
-<!--android:id="@+id/layout_email"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_below="@+id/layout_name"-->
-<!--android:layout_marginLeft="10dp"-->
-<!--android:layout_marginRight="10dp"-->
-<!--android:orientation="horizontal">-->
-<!--<ImageView-->
-<!--    android:layout_width="70dp"-->
-<!--    android:layout_height="50dp"-->
-<!--    android:layout_weight="1"-->
-<!--    android:src="@drawable/ic_email"/>-->
-<!--<EditText-->
-<!--    android:id="@+id/email"-->
-<!--    android:hint="Email"-->
-<!--    android:inputType="textEmailAddress"-->
-<!--    android:layout_marginLeft="10dp"-->
-<!--    android:textColor="@android:color/black"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"/>-->
-</LinearLayout>
-<!--    </RelativeLayout>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama :"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/namaBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Nama Anda"
+                    android:inputType="textPersonName"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/emailBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Email Anda"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jenis Kelamin :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerTrs1"
+                    style="@android:style/Widget.DeviceDefault.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_judultimetrs1"
+                    android:layout_marginTop="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:entries="@array/jenis_kelamin"
+                    android:background="@drawable/rounded"
+                    android:popupBackground="@drawable/rounded"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal Lahir :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/tanggal_lahirBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Tanggal Lahir Anda"
+                    android:inputType="phone"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Username :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/usernameBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Email Anda"
+                    android:inputType="phone"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/passwordBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Email Anda"
+                    android:inputType="phone"
+                    android:background="@drawable/rounded" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

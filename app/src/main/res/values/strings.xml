@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kelompok1</string>
+    <string name="app_name">Orenz Laundry</string>
 
     <string name="paket_reguler">PAKET REGULER</string>
     <string name="cks">CKS</string>
@@ -34,6 +34,9 @@
     <string name="tab_messages">Pesan</string>
     <string name="hapus">HAPUS</string>
     <string name="title_activity_lokasi_jemput">Map</string>
-
+    <string-array name="jenis_kelamin">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
 
 </resources>

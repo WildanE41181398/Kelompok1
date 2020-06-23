@@ -1,33 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
     tools:context=".ui.akun.AkunFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <RelativeLayout
+        android:id="@+id/rel_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
+        <RelativeLayout
+            android:id="@+id/layoutfoto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorAccent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/foto_profil"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="25dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_account_circle_black_18dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_foto"
+                style="@style/Widget.AppCompat.ActionButton.CloseMode"
+                android:text="Ganti Foto"
+                android:layout_below="@id/foto_profil"
+                android:textColor="@color/ic_laundry_regis_background"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_below="@+id/layoutfoto"
+            android:id="@+id/layoutbiodata"
+            >
+
+            <LinearLayout
+                android:id="@+id/linear_bio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama :"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/namaBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Nama Anda"
+                    android:inputType="textPersonName"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/emailBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Email Anda"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nomor HP :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/no_hpBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan No Hp Anda"
+                    android:inputType="phone"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jenis Kelamin :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerTrs1"
+                    style="@android:style/Widget.DeviceDefault.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_judultimetrs1"
+                    android:layout_marginTop="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:entries="@array/jenis_kelamin"
+                    android:background="@drawable/rounded"
+                    android:popupBackground="@drawable/rounded"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal Lahir :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tanggal_lahirBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18sp"
+                    android:text="Masukkan Tanggal Lahir Anda"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Username :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/usernameBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Masukkan Username Anda"
+                    android:inputType="textPersonName"
+                    android:background="@drawable/rounded" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password :"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"/>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/passwordBio"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:layout_marginTop="5dp"
+                        android:inputType="textPassword"
+                        android:background="@drawable/rounded" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_below="@id/linear_bio"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:padding="4dp"
+                android:text="LOGOUT"
+                android:background="@drawable/roundedfillmerah"
+                android:textColor="@color/ic_laundry_regis_background"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
