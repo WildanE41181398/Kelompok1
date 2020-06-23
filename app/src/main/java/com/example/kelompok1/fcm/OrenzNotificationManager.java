@@ -41,8 +41,8 @@ public class OrenzNotificationManager {
                 .setContentIntent(resultPendingIntent)
                 .setContentTitle(title)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon(R.drawable.ic_notifikasi_kecil)
+                .setLargeIcon(BitmapFactory.decodeResource(mCtx.getResources(), R.mipmap.ic_ol_logosquare))
                 .setContentText(message)
                 .build();
 
