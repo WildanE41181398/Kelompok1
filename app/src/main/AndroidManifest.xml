@@ -68,6 +68,7 @@
         <activity android:name=".EmailVerifiedActivity" />
         <activity android:name=".VerifikasiEmailActivity" />
         <activity android:name=".PaketsatuanActivity" />
+        <activity android:name=".PaketExpress" />
         <activity android:name=".PaketregulerActivity" />
         <activity android:name=".LupakatasandiActivity">
             <intent-filter>
