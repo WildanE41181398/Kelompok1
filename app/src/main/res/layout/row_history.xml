@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_row_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="0dp"
+        app:cardBackgroundColor="#FFDE7A"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_historyicon"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:contentDescription="icon history"
+                android:padding="15dp"
+                android:scaleType="fitXY"
+                android:tint="#FF9800"
+                tools:ignore="VectorDrawableCompat"
+                app:srcCompat="@drawable/ic_list_alt_black_18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_judulhistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CKS Reguler"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_durasihistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12 Jam"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_hargahistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rp.15.000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_datehistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30 April 2020"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
