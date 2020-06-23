@@ -7,102 +7,102 @@
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
     android:paddingTop="60dp"
-    android:background="@color/colorCloud"
-    tools:context="com.profil_customer">
+    android:background="@color/cardview_light_background"
+    tools:context=".TransaksiTahap1">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/foto_profil"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_account_cicle_black_24dp" />
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/foto_profil"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:src="@drawable/ic_account_cicle_black_24dp" />-->
 
-    <Button
-        android:id="@+id/btn_foto"
-        style="@style/Widget.AppComat.ActionButton.CloseMode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/foto_profil"
-        android:layout_centerHorizontal="true"
-        android:text="Ganti Foto" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_foto"-->
+<!--        style="@style/Widget.AppComat.ActionButton.CloseMode"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/foto_profil"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="Ganti Foto" />-->
 
-    <LinearLayout
-        android:id="@+id/layout_nama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_foto"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:weightSum="2"
-        android:orientation="horizontal"
-        />
+<!--    <LinearLayout-->
+<!--        android:id="@+id/layout_nama"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/btn_foto"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:weightSum="2"-->
+<!--        android:orientation="horizontal"-->
+<!--        />-->
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_action_name"/>
+<!--    <ImageView-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:src="@drawable/ic_action_name"/>-->
 
-    <EditText
-        android:id="@+id/usename"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:textColor="@android:color/black" />
+<!--    <EditText-->
+<!--        android:id="@+id/usename"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:hint="Username"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:textColor="@android:color/black" />-->
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        tools:src="@tools:sample/avatars" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView11"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        tools:src="@tools:sample/avatars" />-->
 
+<!--</LinearLayout>-->
+
+<!--<LinearLayout-->
+<!--android:id="@+id/layout_password"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_below="@+id/layout_name"-->
+<!--android:layout_marginLeft="10dp"-->
+<!--android:layout_marginRight="10dp"-->
+<!--android:orientation="horizontal">-->
+<!--<ImageView-->
+<!--    android:layout_width="70dp"-->
+<!--    android:layout_height="50dp"-->
+<!--    android:layout_weight="1"-->
+<!--    android:src="@drawable/ic_password"/>-->
+<!--<EditText-->
+<!--    android:id="@+id/password"-->
+<!--    android:hint="Password"-->
+<!--    android:inputType="Password"-->
+<!--    android:layout_marginLeft="10dp"-->
+<!--    android:textColor="@android:color/black"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"/>-->
+<!--</LinearLayout>-->
+<!--<LinearLayout-->
+<!--android:id="@+id/layout_email"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_below="@+id/layout_name"-->
+<!--android:layout_marginLeft="10dp"-->
+<!--android:layout_marginRight="10dp"-->
+<!--android:orientation="horizontal">-->
+<!--<ImageView-->
+<!--    android:layout_width="70dp"-->
+<!--    android:layout_height="50dp"-->
+<!--    android:layout_weight="1"-->
+<!--    android:src="@drawable/ic_email"/>-->
+<!--<EditText-->
+<!--    android:id="@+id/email"-->
+<!--    android:hint="Email"-->
+<!--    android:inputType="textEmailAddress"-->
+<!--    android:layout_marginLeft="10dp"-->
+<!--    android:textColor="@android:color/black"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"/>-->
 </LinearLayout>
-
-<LinearLayout
-android:id="@+id/layout_password"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_below="@+id/layout_name"
-android:layout_marginLeft="10dp"
-android:layout_marginRight="10dp"
-android:orientation="horizontal">
-<ImageView
-    android:layout_width="70dp"
-    android:layout_height="50dp"
-    android:layout_weight="1"
-    android:src="@drawable/ic_password"/>
-<EditText
-    android:id="@+id/password"
-    android:hint="Password"
-    android:inputType="Password"
-    android:layout_marginLeft="10dp"
-    android:textColor="@android:color/black"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
-</LinearLayout>
-<LinearLayout
-android:id="@+id/layout_email"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_below="@+id/layout_name"
-android:layout_marginLeft="10dp"
-android:layout_marginRight="10dp"
-android:orientation="horizontal">
-<ImageView
-    android:layout_width="70dp"
-    android:layout_height="50dp"
-    android:layout_weight="1"
-    android:src="@drawable/ic_email"/>
-<EditText
-    android:id="@+id/email"
-    android:hint="Email"
-    android:inputType="textEmailAddress"
-    android:layout_marginLeft="10dp"
-    android:textColor="@android:color/black"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
-</LinearLayout>
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
