@@ -55,6 +55,7 @@ public class TransaksiTahap2 extends AppCompatActivity {
     List<DataTrs1> listWaktu = new ArrayList<DataTrs1>();
     SessionManager sessionManager;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

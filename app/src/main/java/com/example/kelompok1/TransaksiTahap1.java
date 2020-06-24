@@ -68,6 +68,7 @@ public class TransaksiTahap1 extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
