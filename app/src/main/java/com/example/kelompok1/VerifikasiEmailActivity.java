@@ -61,6 +61,7 @@ public class VerifikasiEmailActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(VerifikasiEmailActivity.this);
         loading = findViewById(R.id.loading);
         BaseUrl = SessionManager.BASE_URL;
+        IdUser = getIntent().getStringExtra("id_user");
 
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -39,6 +39,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class TransaksiTahap2 extends AppCompatActivity {
@@ -59,6 +60,7 @@ public class TransaksiTahap2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaksi_tahap2);
 
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Transaksi");
         tvLokasi = findViewById(R.id.tv_lokasitrs2);
         tvPaket = findViewById(R.id.tv_pakettrs2);
         tvDate = findViewById(R.id.tv_datetrs2);

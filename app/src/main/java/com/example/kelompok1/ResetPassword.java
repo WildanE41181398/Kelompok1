@@ -129,8 +129,6 @@ public class ResetPassword extends AppCompatActivity {
                             if (message.equals("success")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 Intent intent = new Intent(ResetPassword.this, Login.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(ResetPassword.this, message, Toast.LENGTH_SHORT).show();

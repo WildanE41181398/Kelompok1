@@ -73,6 +73,7 @@ public class TransaksiTahap1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaksi_tahap1);
 
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Transaksi");
         tvLokasi = findViewById(R.id.tv_lokasitrs1);
         tvPaket = findViewById(R.id.tv_pakettrs1);
         tvDate = findViewById(R.id.tv_datetrs1);
