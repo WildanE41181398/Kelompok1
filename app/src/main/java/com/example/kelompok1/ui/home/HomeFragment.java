@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kelompok1.Helper.SessionManager;
+import com.example.kelompok1.PaketExpress;
 import com.example.kelompok1.PaketregulerActivity;
 import com.example.kelompok1.PaketsatuanActivity;
 import com.example.kelompok1.R;
@@ -104,7 +105,9 @@ public class HomeFragment extends Fragment {
         paket_express.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Aksi pada Paket Express", Toast.LENGTH_LONG).show();
+             //   Toast.makeText(getContext(), "Aksi pada Paket Express", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), PaketExpress.class);
+                startActivity(intent);
             }
         });
 
