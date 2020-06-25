@@ -11,7 +11,7 @@ import com.example.kelompok1.ui.notifications.FragmentTabNotifications;
 
 public class ViewAdapterTabHistory extends FragmentPagerAdapter {
 
-    final int PAGE_COUNT = 1;
+    final int PAGE_COUNT = 2;
     final HistoryFragment context;
 
     public ViewAdapterTabHistory(FragmentManager fm, HistoryFragment context){
@@ -25,11 +25,11 @@ public class ViewAdapterTabHistory extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position){
             case 0:
+                fragment = FragmentTabTransaksi.newInstance();
+                break;
+            case 1:
                 fragment = FragmentTabHistory.newInstance();
                 break;
-//            case 1:
-//                fragment = FragmentTabHistory.newInstance();
-//                break;
         }
         return fragment;
     }
@@ -38,9 +38,9 @@ public class ViewAdapterTabHistory extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position){
         switch (position){
             case 0:
+                return "Transaksi";
+            case 1:
                 return "History";
-//            case 1:
-//                return "History";
         }
         return null;
     }

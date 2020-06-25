@@ -44,7 +44,7 @@ public class HistoryFragment extends Fragment {
         ViewAdapterTabHistory viewAdapterTabHistory =
                 new ViewAdapterTabHistory(getChildFragmentManager(),this);
         viewPager.setAdapter(viewAdapterTabHistory);
-        viewPager.setOffscreenPageLimit(1);
+        viewPager.setOffscreenPageLimit(2);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(viewAdapterTabHistory);
     }
