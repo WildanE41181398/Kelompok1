@@ -11,25 +11,41 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.kelompok1.R;
+import com.example.kelompok1.ui.notifications.ViewAdapterTabNotifications;
+import com.google.android.material.tabs.TabLayout;
 
 public class HistoryFragment extends Fragment {
 
-    private HistoryViewModel historyViewModel;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        historyViewModel =
-                ViewModelProviders.of(this).get(HistoryViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_history, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        historyViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        tabLayout = root.findViewById(R.id.tabs_fragmess);
+        viewPager = root.findViewById(R.id.vPager_fragmess);
+        init();
+
         return root;
+    }
+
+    private void init(){
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+
+    }
+
+    private void setupViewPager(final ViewPager viewPager){
+        ViewAdapterTabHistory viewAdapterTabHistory =
+                new ViewAdapterTabHistory(getChildFragmentManager(),this);
+        viewPager.setAdapter(viewAdapterTabHistory);
+        viewPager.setOffscreenPageLimit(1);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setTabsFromPagerAdapter(viewAdapterTabHistory);
     }
 }

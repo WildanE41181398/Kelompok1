@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="135dp"
+    android:layout_height="100dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -25,7 +25,7 @@
 
             <ImageView
                 android:id="@+id/iv_historyicon"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:contentDescription="icon history"
                 android:padding="15dp"
@@ -46,24 +46,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="CKS Reguler"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     />
-
-                <TextView
-                    android:id="@+id/tv_durasihistory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="12 Jam"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/tv_hargahistory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Rp.15.000"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -71,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="30 April 2020"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
