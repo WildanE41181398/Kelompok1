@@ -48,25 +48,25 @@ public class RecyclerViewTabNotificationAdapter
         String judulnotif = "1";
         switch (mNotifications.get(position).getStatus()){
             case "0":
-                judulnotif = "Pesanan anda berhasil dibuat! Mohon tunggu untuk konfirmasi penjemputan";
+                judulnotif = "Selamat atas pesanan cucian Anda di Orenz Laundry! Tunggu notifikasi penjemputan dari kami ya.";
                 break;
             case "1":
-                judulnotif = "Kami akan menjemput cucian ke rumah anda!";
+                judulnotif = " Hai! Kami akan menjemput pesanan cucian ke lokasi Anda.";
                 break;
             case "2":
-                judulnotif = "Mohon konfirmasi untuk melanjutkan proses pesanan.";
+                judulnotif = "Yuk, konfirmasi pesanan cucian Anda sekarang!";
                 break;
             case "3":
-                judulnotif = "Pesanan sedang diproses! Mohon tunggu update terbaru ketika cucian telah siap diantarkan.";
+                judulnotif = " Hai! Pesanan cucian Anda sedang diproses, tunggu notifikasi terbaru dari kami ya.";
                 break;
             case "4":
-                judulnotif = "Pesanan/cuician anda siap diantarkan, mohon atur lokasi antar untuk melanjutkan. \n Mohon siapkan biaya tagihan juga ya, kami akan melakukan pembayaran sembari mengantar cucian.";
+                judulnotif = "Hai! Pesanan cucian Anda siap diantarkan, mohon atur lokasi untuk pengantaran. \n Dan siapkan biaya sesuai tagihan, kami akan melakukan pembayaran sembari mengantar cucian.";
                 break;
             case "5":
-                judulnotif = "Pesanan/cucian selesai diantarkan, sampai jumpa lagi.";
+                judulnotif = "Pesanan cucian Anda selesai diantarkan, terima kasih telah memilih layanan kami.";
                 break;
             case "6":
-                judulnotif = "Sayangnya pesanan dibatalkan. mohon beri kami kritik dan saran pada menu 'Pesan'";
+                judulnotif = "Sayangnya pesanan cucian Anda dibatalkan, mohon beri kami kritik dan saran pada menu 'Pesan'";
                 break;
         }
         holder.judul.setText(judulnotif);
