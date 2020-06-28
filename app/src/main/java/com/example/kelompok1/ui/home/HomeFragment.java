@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
     private SessionManager sessionManager;
     private String IdUser, BaseUrl;
     private CarouselView carouselView;
-    private int[] carakerjaImages = {R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01, R.drawable.ol_homesaldo_02, R.drawable.ol_homekerja_01};
+    private int[] carakerjaImages = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4, R.drawable.slide5, R.drawable.slide6, R.drawable.slide7};
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
