@@ -211,6 +211,14 @@
             android:layout_toRightOf="@id/tv_left_catatan"
             android:text=": USR000"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/ctt_ongkir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_left_catatan"
+            android:layout_marginTop="20dp"
+            android:text="*total harga diatas tidak termasuk ongkir" />
     </RelativeLayout>
 
     <Button

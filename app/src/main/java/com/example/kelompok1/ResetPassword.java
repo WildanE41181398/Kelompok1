@@ -125,9 +125,9 @@ public class ResetPassword extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String message = jsonObject.getString("message");
+                            String status = jsonObject.getString("status");
 
-                            if (message.equals("success")) {
-                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                            if (status.equals("200")) {
                                 Intent intent = new Intent(ResetPassword.this, Login.class);
                                 startActivity(intent);
                             } else {

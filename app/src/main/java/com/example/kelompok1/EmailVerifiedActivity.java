@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,7 +55,9 @@ public class EmailVerifiedActivity extends AppCompatActivity {
          btnHome.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-
+                 Intent intent = new Intent(EmailVerifiedActivity.this, BerandaOrenz.class);
+                 intent.putExtra("NAVIGATION", "HOME");
+                 startActivity(intent);
              }
          });
     }
