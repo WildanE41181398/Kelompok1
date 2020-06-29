@@ -45,11 +45,11 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded"
                     android:padding="20dp"
-                    android:text="Lakukan langkah - langkah berikut untuk \nmelakukan Top Up saldo anda : \n\n
-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed tellus in leo congue pulvinar. \n\n
-2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed tellus in leo congue pulvinar \n\n
-3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed tellus in leo congue pulvinar \n\n
-4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed tellus in leo congue pulvinar"
+                    android:text="Lakukan langkah - langkah berikut untuk \nmelakukan Top Up saldo Anda : \n\n
+1. Customer bisa langsung datang ke tempat Orenz Laundry. \n\n
+2. Customer memberikan uang secara langsung di tempat sesuai yang diinginkan untuk Top Up. \n\n
+3. Saldo pada akun Customer akan diperbarui oleh pihak Orenz Laundry. \n\n
+NB : Saldo berguna untuk pembayaran transaksi bagi Customer di Orenz Laundry."
                     android:textAlignment="textStart"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
