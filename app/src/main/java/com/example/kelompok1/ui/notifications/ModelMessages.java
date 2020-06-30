@@ -2,7 +2,7 @@ package com.example.kelompok1.ui.notifications;
 
 public class ModelMessages {
 
-    private String id, user, subjek, body;
+    private String id, user, subjek, body, tgl;
 
     public ModelMessages(){}
 
@@ -17,4 +17,7 @@ public class ModelMessages {
 
     public String getBody(){ return body; }
     public void setBody(String body){ this.body = body; }
+
+    public String getTgl(){ return tgl; }
+    public void setTgl(String tgl){ this.tgl = tgl; }
 }

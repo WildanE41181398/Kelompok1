@@ -98,11 +98,13 @@ public class FragmentTabMessages extends Fragment {
                                     String strId = object.getString("id_pesan").trim();
                                     String strBody = object.getString("isi_pesan").trim();
                                     String strSubjek = object.getString("subjek_pesan").trim();
+                                    String strTgl = object.getString("tanggal_pesan").trim();
 
                                     ModelMessages modelMessages = new ModelMessages();
                                     modelMessages.setId(strId);
                                     modelMessages.setBody(strBody);
                                     modelMessages.setSubjek(strSubjek);
+                                    modelMessages.setTgl(strTgl);
                                     listMessages.add(modelMessages);
                                 }
                                 setupRecyclerView(listMessages);

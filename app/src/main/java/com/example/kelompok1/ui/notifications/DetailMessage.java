@@ -181,10 +181,12 @@ public class DetailMessage extends AppCompatActivity {
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String strSubjek = object.getString("subjek_pesan").trim();
                                     String strBody = object.getString("isi_pesan").trim();
+                                    String strTgl = object.getString("tanggal_pesan");
 
                                     Objects.requireNonNull(getSupportActionBar()).setTitle(strSubjek);
                                     tv_judul.setText(strSubjek);
                                     tv_body.setText(strBody);
+                                    tv_date.setText(strTgl);
                                 }
                             } else {
                                 Toast.makeText(DetailMessage.this, "Tidak dapat memuat data", Toast.LENGTH_LONG).show();

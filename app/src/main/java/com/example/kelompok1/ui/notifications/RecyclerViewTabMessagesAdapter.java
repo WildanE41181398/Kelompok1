@@ -43,6 +43,7 @@ public class RecyclerViewTabMessagesAdapter
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             holder.body.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
         }
+        holder.date.setText(mMessages.get(position).getTgl());
         holder.judul.setText(mMessages.get(position).getSubjek());
         if (mMessages.get(position).getBody().length() > 100){
             holder.body.setText(mMessages.get(position).getBody().substring(0, 100) + "...");
