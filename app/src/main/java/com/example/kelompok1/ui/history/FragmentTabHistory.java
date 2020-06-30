@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ import com.example.kelompok1.ui.notifications.RecyclerViewTabNotificationAdapter
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +42,7 @@ public class FragmentTabHistory extends Fragment {
     private RecyclerView recyclerView;
     private String IdUser, BaseUrl;
     private SessionManager sessionManager;
+    private TextView toasthst;
 
     public static FragmentTabHistory newInstance() { return new FragmentTabHistory(); }
 
@@ -52,6 +55,7 @@ public class FragmentTabHistory extends Fragment {
         BaseUrl = SessionManager.BASE_URL;
         recyclerView = root.findViewById(R.id.rv_history);
         sessionManager = new SessionManager(getContext());
+        toasthst = root.findViewById(R.id.toast_hst);
 
         HashMap<String, String> user = sessionManager.getUserDetail();
 
@@ -94,7 +98,9 @@ public class FragmentTabHistory extends Fragment {
                                 }
                                 setupRecyclerView(listHistory);
                             }else{
-                                Toast.makeText(getContext(), "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getContext(), "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
+                                toasthst.setVisibility(View.VISIBLE);
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

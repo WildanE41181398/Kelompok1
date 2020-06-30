@@ -97,7 +97,7 @@ public class TransaksiTahap1 extends AppCompatActivity {
         }
 
 
-        Toast.makeText(TransaksiTahap1.this, id_paket, Toast.LENGTH_LONG).show();
+        //Toast.makeText(TransaksiTahap1.this, id_paket, Toast.LENGTH_LONG).show();
         id_promo = "PRM000000000001";
 
         getNamaPaket();

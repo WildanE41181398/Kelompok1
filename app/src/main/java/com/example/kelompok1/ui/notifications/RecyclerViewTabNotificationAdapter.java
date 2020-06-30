@@ -1,5 +1,6 @@
 package com.example.kelompok1.ui.notifications;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -38,6 +39,7 @@ public class RecyclerViewTabNotificationAdapter
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("WrongConstant")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -51,16 +53,16 @@ public class RecyclerViewTabNotificationAdapter
                 judulnotif = "Selamat atas pesanan cucian Anda di Orenz Laundry! Tunggu notifikasi penjemputan dari kami ya.";
                 break;
             case "1":
-                judulnotif = " Hai! Kami akan menjemput pesanan cucian ke lokasi Anda.";
+                judulnotif = "Hai! Kami akan menjemput pesanan cucian ke lokasi Anda.";
                 break;
             case "2":
                 judulnotif = "Yuk, konfirmasi pesanan cucian Anda sekarang!";
                 break;
             case "3":
-                judulnotif = " Hai! Pesanan cucian Anda sedang diproses, tunggu notifikasi terbaru dari kami ya.";
+                judulnotif = "Hai! Pesanan cucian Anda sedang diproses, tunggu notifikasi terbaru dari kami ya.";
                 break;
             case "4":
-                judulnotif = "Hai! Pesanan cucian Anda siap diantarkan, mohon atur lokasi untuk pengantaran. \n Dan siapkan biaya sesuai tagihan, kami akan melakukan pembayaran sembari mengantar cucian.";
+                judulnotif = "Hai! Pesanan cucian Anda siap diantarkan, mohon atur lokasi Anda dan siapkan biaya tagihan untuk transaksi.";
                 break;
             case "5":
                 judulnotif = "Pesanan cucian Anda selesai diantarkan, terima kasih telah memilih layanan kami.";

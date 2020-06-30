@@ -43,6 +43,7 @@ public class FragmentTabMessages extends Fragment {
     private FloatingActionButton fa_add;
     private String IdUser, BaseUrl;
     private SessionManager sessionManager;
+    private TextView toastmsg;
 
     public static FragmentTabMessages newInstance(){
         return new FragmentTabMessages();
@@ -57,6 +58,7 @@ public class FragmentTabMessages extends Fragment {
         fa_add = root.findViewById(R.id.floatingActionButton);
         recyclerView = root.findViewById(R.id.rv_messages);
         BaseUrl = SessionManager.BASE_URL;
+        toastmsg = root.findViewById(R.id.toast_msg);
 
         sessionManager = new SessionManager(getContext());
 
@@ -107,7 +109,8 @@ public class FragmentTabMessages extends Fragment {
                                 }
                                 setupRecyclerView(listMessages);
                             }else{
-                                Toast.makeText(getContext(), "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getContext(), "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
+                                toastmsg.setVisibility(View.VISIBLE);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

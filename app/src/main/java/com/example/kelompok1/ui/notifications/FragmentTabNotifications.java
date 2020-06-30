@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -37,6 +38,7 @@ public class FragmentTabNotifications extends Fragment {
     private RecyclerView recyclerView;
     private String IdUser, BaseUrl;
     private SessionManager sessionManager;
+    private TextView toastntf;
 
     public static FragmentTabNotifications newInstance(){
         return new FragmentTabNotifications();
@@ -51,6 +53,7 @@ public class FragmentTabNotifications extends Fragment {
         BaseUrl = SessionManager.BASE_URL;
         recyclerView = root.findViewById(R.id.rv_notif);
         sessionManager = new SessionManager(getContext());
+        toastntf = root.findViewById(R.id.toast_ntf);
 
         HashMap<String, String> user = sessionManager.getUserDetail();
 
@@ -91,7 +94,8 @@ public class FragmentTabNotifications extends Fragment {
                                 }
                                 setupRecyclerView(listNotifications);
                             }else{
-                                Toast.makeText(getContext(), "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getContext(), "Tidak dapat memuat data", Toast.LENGTH_LONG).show();
+                                toastntf.setVisibility(View.VISIBLE);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

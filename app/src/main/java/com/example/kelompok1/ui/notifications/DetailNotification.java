@@ -298,32 +298,32 @@ public class DetailNotification extends AppCompatActivity {
                                         catatan.setText(": " + strCatatan);
                                     }
 
-                                    String strJudul = "";
+                                    String judulnotif = "";
                                     switch (strStatus){
                                         case "0":
-                                            strJudul = "Pesanan anda berhasil dibuat! Mohon tunggu untuk konfirmasi penjemputan";
+                                            judulnotif = "Selamat atas pesanan cucian Anda di Orenz Laundry! Tunggu notifikasi penjemputan dari kami ya.";
                                             break;
                                         case "1":
-                                            strJudul = "Kami akan menjemput cucian ke rumah anda!";
+                                            judulnotif = " Hai! Kami akan menjemput pesanan cucian ke lokasi Anda.";
                                             break;
                                         case "2":
-                                            strJudul = "Berikut detail pesanan/cucian yang telah kami timbang dan sortir. \n Mohon konfirmasi untuk melanjutkan proses pesanan. dengan melakukan konfirmasi, berarti anda setuju dengan tagihan harga yang tertera dibawah ini.";
+                                            judulnotif = "Yuk, konfirmasi pesanan cucian Anda sekarang!";
                                             break;
                                         case "3":
-                                            strJudul = "Pesanan sedang diproses! Mohon tunggu update terbaru ketika cucian telah siap diantarkan.";
+                                            judulnotif = " Hai! Pesanan cucian Anda sedang diproses, tunggu notifikasi terbaru dari kami ya.";
                                             break;
                                         case "4":
-                                            strJudul = "Pesanan/cuician anda siap diantarkan, mohon atur lokasi antar untuk melanjutkan. \n Mohon siapkan biaya tagihan juga ya, kami akan melakukan pembayaran sembari mengantar cucian.";
+                                            judulnotif = "Hai! Pesanan cucian Anda siap diantarkan, mohon atur lokasi Anda dan siapkan biaya tagihan untuk transaksi.";
                                             break;
                                         case "5":
-                                            strJudul = "Pesanan/cucian selesai diantarkan, sampai jumpa lagi.";
+                                            judulnotif = "Pesanan cucian Anda selesai diantarkan, terima kasih telah memilih layanan kami.";
                                             break;
                                         case "6":
-                                            strJudul = "Sayangnya pesanan dibatalkan. mohon beri kami kritik dan saran pada menu 'Pesan'";
+                                            judulnotif = "Sayangnya pesanan cucian Anda dibatalkan, mohon beri kami kritik dan saran pada menu 'Pesan'";
                                             break;
                                     }
 
-                                    judul.setText(strJudul);
+                                    judul.setText(judulnotif);
 
                                 }
 

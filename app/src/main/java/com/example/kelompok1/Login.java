@@ -122,7 +122,7 @@ public class Login extends AppCompatActivity {
                             String message = jsonObject.getString("message");
 
                             if (status.equals("200")){
-                                Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
                             }
