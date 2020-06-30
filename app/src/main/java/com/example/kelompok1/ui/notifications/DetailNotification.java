@@ -150,6 +150,11 @@ public class DetailNotification extends AppCompatActivity {
 
                             if (status.equals("200")){
                                 Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getBaseContext(), BerandaOrenz.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.putExtra("NAVIGATION", "NOTIFIKASI");
+                                startActivity(intent);
                             }else {
                                 Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
                             }

@@ -47,6 +47,7 @@ public class DetailPromosi extends AppCompatActivity {
         tv_syarat = findViewById(R.id.tv_syarat_body);
         tv_awal = findViewById(R.id.tv_awal);
         tv_akhir = findViewById(R.id.tv_akhir);
+        tv_kode = findViewById(R.id.tv_kode);
         iv_promosi = findViewById(R.id.iv_detail_promosi);
         BaseUrl = SessionManager.BASE_URL;
 
@@ -80,13 +81,25 @@ public class DetailPromosi extends AppCompatActivity {
                                         String strSyarat = object.getString("syarat_ketentuan").trim();
                                         String strAwal = object.getString("awal").trim();
                                         String strAkhir = object.getString("akhir").trim();
-                                        String strStatus = object.getString("status").trim();
+                                        String strKode = object.getString("kode").trim();
                                         String strGambar = object.getString("gambar").trim();
 
                                         Objects.requireNonNull(getSupportActionBar()).setTitle(strNama);
                                         tv_desc.setText(strDesc);
-                                        tv_awal.setText("Awal Periode : " + strAwal.substring(0, 10));
-                                        tv_akhir.setText("Akhir Periode : " + strAkhir.substring(0, 10));
+                                        if (strAwal.length() > 10){
+                                            tv_awal.setText("Awal Periode : " + strAwal.substring(0, 10));
+                                        }else{
+                                            tv_awal.setText("Awal Periode : -");
+                                        }
+
+                                        if (strAkhir.length() > 10){
+                                            tv_akhir.setText("Akhir Periode : " + strAkhir.substring(0, 10));
+                                        }else{
+                                            tv_akhir.setText("Akhir Periode : -");
+                                        }
+
+                                        tv_kode.setText("Kode :" + strKode);
+
                                         Picasso.with(DetailPromosi.this).load(BaseUrl + "assets/files/gambar_promo/" + strGambar).into(iv_promosi);
 
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
