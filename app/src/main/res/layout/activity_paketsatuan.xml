@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="Pilih Paket Satauan"
+        android:text="Pilih Paket Satuan"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp" />
 

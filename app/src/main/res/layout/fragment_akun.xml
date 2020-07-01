@@ -110,6 +110,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="Masukkan No Hp Anda"
                     android:inputType="phone"
+                    android:maxLength="13"
                     android:background="@drawable/rounded" />
 
                 <TextView
