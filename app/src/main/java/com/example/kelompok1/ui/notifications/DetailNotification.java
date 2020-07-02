@@ -301,10 +301,10 @@ public class DetailNotification extends AppCompatActivity {
                                     String judulnotif = "";
                                     switch (strStatus){
                                         case "0":
-                                            judulnotif = "Selamat atas pesanan cucian Anda di Orenz Laundry! Tunggu notifikasi penjemputan dari kami ya.";
+                                            judulnotif = "Selamat atas pesanan cucian Anda di Orenz Laundry! Kami akan menjemput cucian ke lokasi Anda.";
                                             break;
                                         case "1":
-                                            judulnotif = " Hai! Kami akan menjemput pesanan cucian ke lokasi Anda.";
+                                            judulnotif = "Hai! Tunggu sebentar, kami sedang melakukan sorting pesanan Anda";
                                             break;
                                         case "2":
                                             judulnotif = "Yuk, konfirmasi pesanan cucian Anda sekarang!";
